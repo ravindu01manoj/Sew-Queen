@@ -77,7 +77,7 @@ SewQueen['IntroduceCMD']({pattern: 'mycmd', fromMe: true, dontAdCommandList: tru
         return await message.client.sendMessage(message.jid, mesaj, MessageType.text);
     }
 }));
-SewQueen['IntroduceCMD']({pattern: 'remove(?: |$)(.*)', fromMe: true,  delownsewcmd: false,  desc: Lang.REMOVE_DESC, dontAdCommandList: true}, (async (message, match) => {
+SewQueen['IntroduceCMD']({pattern: 'remove(?: |$)(.*)', fromMe: true, dontAdCommandList: true}, (async (message, match) => {
     if (match[1] === '') return await message.sendMessage('need extrenal Cmd');
     if (!match[1].startsWith('_____')) match[1] = '_____' + match[1];
     var command = await Db.PluginDB.findAll({ where: {name: match[1]} });
