@@ -29,12 +29,12 @@ let msg = Details.LANG == 'SI' || Details.LANG == 'EN' ? 'මෙම කමාන
 let unmsg = Details.LANG == 'SI' || Details.LANG == 'EN' ? 'මෙම කමාන්ඩ් ස්තාපිත කල නොහැක ' : '*This cmd is not Approved!* ❌'
 
 
-SewQueen['IntroduceCMD']({pattern: 'install ?(.*)', fromMe: true,  delownsewcmd: false,  desc: Lang.INSTALL_DESC, dontAdCommandList: true}, (async (message, match) => {
-    if (match[1] === '') return await message.sendMessage(Lang.NEED_URL + '.install url')
+SewQueen['IntroduceCMD']({pattern: 'install ?(.*)', fromMe: true, dontAdCommandList: true}, (async (message, match) => {
+    if (match[1] === '') return await message.sendMessage('Need Cmd Url. And Use => .install url')
     try {
         var url = new URL(match[1]);
     } catch {
-        return await message.sendMessage(Lang.INVALID_URL);
+        return await message.sendMessage('invalid url.. pleas storeyour code in gits.github.com');
     }
     if (url.host === 'gist.github.com') {
         url.host = 'gist.githubusercontent.com';
@@ -60,12 +60,11 @@ SewQueen['IntroduceCMD']({pattern: 'install ?(.*)', fromMe: true,  delownsewcmd:
         }
 
         await Db.installPlugin(url, new_commnad);
-        await message.client.sendMessage(message.jid, Lang.INSTALLED, MessageType.text);
+        await message.client.sendMessage(message.jid, 'Extrenal Cmd Successfully Installed', MessageType.text);
     }
 }));
-
-SewQueen['IntroduceCMD']({pattern: 'mycmd', fromMe: true,  delownsewcmd: false,  desc: Lang.PLUGIN_DESC, dontAdCommandList: true}, (async (message, match) => {
-    var mesaj = Lang.INSTALLED_FROM_REMOTE;
+SewQueen['IntroduceCMD']({pattern: 'mycmd', fromMe: true, dontAdCommandList: true}, (async (message, match) => {
+    var mesaj = 'Your All Extrenal CMD\n\n';
     var commandss = await Db.PluginDB.findAll();
     if (commandss.length < 1) {
         return await message.sendMessage('No Any Author Extra Cmd');
@@ -79,20 +78,20 @@ SewQueen['IntroduceCMD']({pattern: 'mycmd', fromMe: true,  delownsewcmd: false, 
     }
 }));
 SewQueen['IntroduceCMD']({pattern: 'remove(?: |$)(.*)', fromMe: true,  delownsewcmd: false,  desc: Lang.REMOVE_DESC, dontAdCommandList: true}, (async (message, match) => {
-    if (match[1] === '') return await message.sendMessage(Lang.NEED_PLUGIN);
+    if (match[1] === '') return await message.sendMessage('need extrenal Cmd');
     if (!match[1].startsWith('_____')) match[1] = '_____' + match[1];
     var command = await Db.PluginDB.findAll({ where: {name: match[1]} });
     if (command.length < 1) {
-        return await message.sendMessage(message.jid, Lang.NOT_FOUND_PLUGIN, MessageType.text);
+        return await message.sendMessage(message.jid,'Not Found', MessageType.text);
     } else {
         await command[0].destroy();
         delete require.cache[require.resolve('./' + match[1] + '.js')]
         fs.unlinkSync('./Commands/' + match[1] + '.js');
-        await message.client.sendMessage(message.jid, Lang.DELETED, MessageType.text);
+        await message.client.sendMessage(message.jid, 'Successfully Deleted!', MessageType.text);
         
         await new Promise(r => setTimeout(r, 1000));
     
-        await message.sendMessage(NLang.AFTER_UPDATE);
+        await message.sendMessage('Restarting');
 
         console.log(baseURI);
         await heroku.delete(baseURI + '/dynos').catch(async (error) => {
