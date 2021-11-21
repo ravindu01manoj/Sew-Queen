@@ -3,7 +3,6 @@ let SewQueen = require('sew-queen-pro/sources/dc/handler');
 let Details = require('sew-queen-pro/sources/dc/Details');
 let {sendMessageAllMenu,sendMessageonemenu} = require('sew-queen-pro/sources/dc/cmd/menu')
 let WorkType = Details.WORKTYPE == 'public' ? false : true
-
 SewQueen['IntroduceCMD']({
         pattern: 'help ?(.*)', 
         fromMe: false, 
