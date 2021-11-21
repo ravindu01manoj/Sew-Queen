@@ -1,0 +1,59 @@
+{
+  "name": "sew-queen",
+  "version": "3.0.0",
+  "description": "Sew Queen Best Whatsapp Bot Project In The World",
+  "main": "./QueenSewWhatsappBot/sew.js",
+  "scripts": {
+    "start": "supervisor -s sew.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ravindu01manoj/Sew-Queen.git"
+  },
+  "keywords": [
+    "whatsapp",
+    "sew",
+    "queen",
+    "sewqueen",
+    "bot"
+  ],
+  "author": "Ravindu",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/ravindu01manoj/Sew-Queen/issues"
+  },
+  "homepage": "https://github.com/ravindu01manoj/Sew-Queen#readme",
+  "dependencies": {
+    "@ravindu01manoj/sew-queen-web": "1.0.1",
+    "network-speed": "2.1.1",
+    "cheerio": "*",
+    "axios": ">=0.21.2",
+    "googlethis": "^1.1.6",
+    "chalk": "*",
+    "check-path": "*",
+    "deepai": "*",
+    "fs-extra": "^9.1.0",
+    "google-tts-api": "^2.0.2",
+    "qrcode-reader": "^1.0.4",
+    "jpeg-js": "*",
+    "heroku-client": "^3.1.0",
+    "jimp": "^0.16.1",
+    "js-ffmpeg": "0.0.26",
+    "file-type": "^16.5.2",
+    "jsdom": "^16.6.0",
+    "langs": "^2.0.0",
+    "languagedetect": "^2.0.0",
+    "meme-maker": "^2.1.2",
+    "mongodb": "3.6.3",
+    "node-fetch": "^2.6.1",
+    "node-tesseract-ocr": "^2.0.0",
+    "pg": "8.5.1",
+    "cookie": "^0.4.1",
+    "sqlite3": "5.0.0",
+    "yt-search": "*",
+    "ytdl-core": "*",
+    "cookie": "^0.4.1",
+    "instatouch": "^2.3.3"
+  }
+}
+
