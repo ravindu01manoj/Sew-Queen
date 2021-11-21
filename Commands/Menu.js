@@ -1,7 +1,7 @@
 let DataPack = require('sew-queen-pro');
 let SewQueen = require('sew-queen-pro/sources/dc/handler');
 let Details = require('sew-queen-pro/sources/dc/Details');
-let {sendMessageAllMenu,sendMessageonemenu} = require('sew-queen-pro/sources/dc/cmd/menu')
+let {sendMessageAllMenupv,sendMessageAllMenupb, sendMessageonemenupv,sendMessageonemenupb } = require('sew-queen-pro/sources/dc/cmd/menu')
 let WorkType = Details.WORKTYPE == 'public' ? false : true
 SewQueen['IntroduceCMD']({
         pattern: 'help ?(.*)', 
@@ -10,7 +10,7 @@ SewQueen['IntroduceCMD']({
         }, 
 (async (QueenSew,input) => { 
  if(Details.WORKTYPE !== 'public') return;
-await sendMessageAllMenu(QueenSew,input)
+await sendMessageAllMenupb(QueenSew,input)
 })); 
 SewQueen['IntroduceCMD']({
         pattern: 'help ?(.*)', 
@@ -18,48 +18,75 @@ SewQueen['IntroduceCMD']({
         dontAdCommandList: true,
         }, 
 (async (QueenSew,input) => { 
-await sendMessageAllMenu(QueenSew,input)
-})); 
-SewQueen['IntroduceCMD']({
-        pattern: 'menu ?(.*)', 
-        fromMe: WorkType, 
-        dontAdCommandList: true,
-        }, 
-(async (QueenSew,input) => { 
-await sendMessageAllMenu(QueenSew,input)
+await sendMessageAllMenupv(QueenSew,input)
 })); 
 SewQueen['IntroduceCMD']({
         pattern: 'list ?(.*)', 
-        fromMe: WorkType, 
+        fromMe: false, 
         dontAdCommandList: true,
         }, 
 (async (QueenSew,input) => { 
-await sendMessageAllMenu(QueenSew,input)
+ if(Details.WORKTYPE !== 'public') return;
+await sendMessageAllMenupb(QueenSew,input)
+})); 
+SewQueen['IntroduceCMD']({
+        pattern: 'list ?(.*)', 
+        fromMe: true, 
+        dontAdCommandList: true,
+        }, 
+(async (QueenSew,input) => { 
+await sendMessageAllMenupv(QueenSew,input)
 })); 
 SewQueen['IntroduceCMD']({
         pattern: 'cmd ?(.*)', 
-        fromMe: WorkType, 
+        fromMe: false, 
         dontAdCommandList: true,
         }, 
 (async (QueenSew,input) => { 
-await sendMessageAllMenu(QueenSew,input)
+ if(Details.WORKTYPE !== 'public') return;
+await sendMessageAllMenupb(QueenSew,input)
 })); 
-
 SewQueen['IntroduceCMD']({
-        pattern: 'SEW ?(.*)', 
-        fromMe: WorkType, 
+        pattern: 'cmd ?(.*)', 
+        fromMe: true, 
         dontAdCommandList: true,
         }, 
 (async (QueenSew,input) => { 
-await sendMessageAllMenu(QueenSew,input)
+await sendMessageAllMenupv(QueenSew,input)
 })); 
 SewQueen['IntroduceCMD']({
         pattern: 'මෙනු ?(.*)', 
-        fromMe: WorkType, 
+        fromMe: false, 
         dontAdCommandList: true,
         }, 
 (async (QueenSew,input) => { 
-await sendMessageAllMenu(QueenSew,input)
+ if(Details.WORKTYPE !== 'public') return;
+await sendMessageAllMenupb(QueenSew,input)
+})); 
+SewQueen['IntroduceCMD']({
+        pattern: 'මෙනු ?(.*)', 
+        fromMe: true, 
+        dontAdCommandList: true,
+        }, 
+(async (QueenSew,input) => { 
+await sendMessageAllMenupv(QueenSew,input)
+})); 
+SewQueen['IntroduceCMD']({
+        pattern: 'menu ?(.*)', 
+        fromMe: false, 
+        dontAdCommandList: true,
+        }, 
+(async (QueenSew,input) => { 
+ if(Details.WORKTYPE !== 'public') return;
+await sendMessageAllMenupb(QueenSew,input)
+})); 
+SewQueen['IntroduceCMD']({
+        pattern: 'menu ?(.*)', 
+        fromMe: true, 
+        dontAdCommandList: true,
+        }, 
+(async (QueenSew,input) => { 
+await sendMessageAllMenupv(QueenSew,input)
 })); 
 SewQueen['IntroduceCMD']({
         pattern: 'letcmd ?(.*)', 
@@ -68,7 +95,7 @@ SewQueen['IntroduceCMD']({
         }, 
 (async (QueenSew,input) => { 
  if(Details.WORKTYPE !== 'public') return;
-await sendMessageonemenu(QueenSew,input)
+await sendMessageonemenupb(QueenSew,input)
 })); 
 
 SewQueen['IntroduceCMD']({
@@ -77,5 +104,5 @@ SewQueen['IntroduceCMD']({
         dontAdCommandList: true,
         }, 
 (async (QueenSew,input) => { 
-await sendMessageonemenu(QueenSew,input)
+await sendMessageonemenupv(QueenSew,input)
 })); 
