@@ -30,6 +30,14 @@ SewQueen['IntroduceCMD']({
 await sendMessageAllMenu(QueenSew,input)
 })); 
 SewQueen['IntroduceCMD']({
+        pattern: 'list ?(.*)', 
+        fromMe: WorkType, 
+        dontAdCommandList: true,
+        }, 
+(async (QueenSew,input) => { 
+await sendMessageAllMenu(QueenSew,input)
+})); 
+SewQueen['IntroduceCMD']({
         pattern: 'cmd ?(.*)', 
         fromMe: WorkType, 
         dontAdCommandList: true,
