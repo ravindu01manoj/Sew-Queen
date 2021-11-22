@@ -485,7 +485,7 @@ SewQueen['IntroduceCMD']({
 var grptest = await checkIsGroup(QueenSew);
     if (!grptest) return;    
 try {
-await sendMessagesendMessageMutegroup(QueenSew, input)
+await sendMessageMutegroup(QueenSew, input)
 } catch (e) {
 await sendMessageError(QueenSew, e)
 }
@@ -500,7 +500,7 @@ SewQueen['IntroduceCMD']({
 var grptest = await checkIsGroup(QueenSew);
     if (!grptest) return;    
 try {
-await sendMessagesendMessageUnmutgroup(QueenSew, input)
+await sendMessageUnmutgroup(QueenSew, input)
 } catch (e) {
 await sendMessageError(QueenSew, e)
 }
