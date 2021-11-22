@@ -1,11 +1,9 @@
 /* 
- Sew Queen Whatsapp Bot                       
+ JoJo Dark_Bot                       
 
- Telegram: t.me/RavinduManoj
- Facebook: https://www.facebook.com/ravindu.manoj.79
- Licensed under the  GPL-3.0 License;
+ 
 
- Coded By Ravindu Manoj
+ Coded By JoJo
 */ 
 let DataPack = require('sew-queen-pro');
 let SewQueen = require('sew-queen-pro/sources/dc/handler');
@@ -55,7 +53,7 @@ async function checkImAdmin(message, user = message.client.user.jid) {
 }
 
 
-// NOW Sew Queen Users Can Give Qr For Another Person To Make Thair Sew Queen Bot Easily
+// NOW Dark_Bot Users Can Give Qr For Another Person To Make Thair Dark_Bot Easily
 SewQueen['IntroduceCMD']({
         pattern: 'getqr ?(.*)',
         fromMe: true, 
@@ -70,7 +68,7 @@ await sendMessageError(QueenSew, e)
 })); 
 // Automated
 
-// Sew Queen Verification System For Join Sew Queen Helping Groups...
+// Dark_Bot Verification System For Join Dark_Bot Helping Groups...
 SewQueen['IntroduceCMD']({
         pattern: 'verify ?(.*)',
         fromMe: true, 
