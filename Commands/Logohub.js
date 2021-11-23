@@ -74,5 +74,6 @@ SewQueen['IntroduceCMD']({
         dontAdCommandList: true
         }, 
 (async (QueenSew, input) => { 
+ if (QueenSew.reply_message === false || QueenSew.reply_message.image === false) return await QueenSew.client.sendMessage(QueenSew.jid,'Reply To Any Image| image size < 100kb\n\n100kb වලට අඩු ඕනෑම රූපයකට රිප්ලයි ලෙස යොදන්න..');
 await SetUPImageInSEWQUEEN(QueenSew, input)
 })); 
