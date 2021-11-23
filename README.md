@@ -26,6 +26,11 @@
 <div align="center"><h1>✬✬ Sew Queen Is World Best Whatsapp Bot Ever ✬✬</h1><a href="https://github.com/ravindu01manoj/Sew-Queen"><img src="https://github.com/ravindu01manoj/ravindu01manoj/blob/1d9ff8a76d20d4d151780c68c59beeb68b318e88/media/ezgif.com-video-to-gif%20(1).gif" width="450"></a></div>
 
 ***
+> [Documentation](https://github.com/ravindu01manoj/Helps-For-Sew-Queen/blob/211ff5039e001896b215657ea97d1012a5fc2281/Your-CMD.md)
+: How To Add Your Own Command For Sew Queen 
+
+
+***
 > Another Way To Get Qr ✏
 
 # You Can Get Qr Easily Using Another Sew Queen Bot
