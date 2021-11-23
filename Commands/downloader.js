@@ -25,7 +25,11 @@ SewQueen['IntroduceCMD']({
         dontAdCommandList: true
         }, 
 (async (QueenSew, input) => { 
+        try {
 await sendMessageDownloader(QueenSew, input, 'mediafire')
+          } catch (e) {
+                  return await QueenSew.client.sendMessage(QueenSew.jid,'Sorry I Could Not Find This Mediafire File!',MessageType.text, { quoted: QueenSew.data})
+                  }
 })); 
 
 SewQueen['IntroduceCMD']({
@@ -34,7 +38,11 @@ SewQueen['IntroduceCMD']({
         dontAdCommandList: true
         }, 
 (async (QueenSew, input) => { 
+        try {
 await sendMessageDownloader(QueenSew, input, 'insta')
+                } catch (e) {
+                  return await QueenSew.client.sendMessage(QueenSew.jid,'Sorry I Could Not Find This Insta Video!',MessageType.text, { quoted: QueenSew.data})
+                  }
 })); 
 
 SewQueen['IntroduceCMD']({
@@ -43,7 +51,11 @@ SewQueen['IntroduceCMD']({
         dontAdCommandList: true
         }, 
 (async (QueenSew, input) => { 
+        try {
 await sendMessageDownloader(QueenSew, input, 'github')
+                } catch (e) {
+                  return await QueenSew.client.sendMessage(QueenSew.jid,'Sorry I Could Not Find This Profile!',MessageType.text, { quoted: QueenSew.data})
+                  }
 })); 
 
 
@@ -165,7 +177,11 @@ SewQueen['IntroduceCMD']({
         dontAdCommandList: true
         }, 
 (async (QueenSew, input) => { 
+        try {
 await sendMessageDownloader(QueenSew, input, 'liric')
+                } catch (e) {
+                  return await QueenSew.client.sendMessage(QueenSew.jid,'Sorry I Could Not Find This Song!',MessageType.text, { quoted: QueenSew.data})
+                  }
 })); 
 
 SewQueen['IntroduceCMD']({
@@ -185,9 +201,9 @@ SewQueen['IntroduceCMD']({
 (async (QueenSew, input) => { 
         try {
 await downloadtwittersewqueen(QueenSew, input)
-               } catch {
-                        return
-                        }
+               } catch (e) {
+                  return await QueenSew.client.sendMessage(QueenSew.jid,'Sorry I Could Not Find It!',MessageType.text, { quoted: QueenSew.data})
+                  }
 })); 
 
 SewQueen['IntroduceCMD']({
@@ -196,7 +212,11 @@ SewQueen['IntroduceCMD']({
         dontAdCommandList: true
         }, 
 (async (QueenSew, input) => { 
+        try {
 await sendMessageDownloader(QueenSew, input, 'ytv')
+              } catch (e) {
+                  return await QueenSew.client.sendMessage(QueenSew.jid,'Sorry I Could Not Find This Video!',MessageType.text, { quoted: QueenSew.data})
+                  }
 })); 
 
 SewQueen['IntroduceCMD']({
@@ -205,7 +225,11 @@ SewQueen['IntroduceCMD']({
         dontAdCommandList: true
         }, 
 (async (QueenSew, input) => { 
+        try {
 await sendMessageDownloader(QueenSew, input, 'gitclone')
+                } catch (e) {
+                  return await QueenSew.client.sendMessage(QueenSew.jid,'Sorry I Could Not Find master Branch Of this Repo!\n\n Use Like This\n.gitclone RepoUrl/Branch',MessageType.text, { quoted: QueenSew.data})
+                  }
 })); 
 
 SewQueen['IntroduceCMD']({
@@ -214,7 +238,11 @@ SewQueen['IntroduceCMD']({
         dontAdCommandList: true
         }, 
 (async (QueenSew, input) => { 
+        try {
 await sendMessageDownloader(QueenSew, input, 'igprop')
+                } catch (e) {
+                  return await QueenSew.client.sendMessage(QueenSew.jid,'Sorry I Could Not Find It!',MessageType.text, { quoted: QueenSew.data})
+                  }
 })); 
 
 SewQueen['IntroduceCMD']({
@@ -243,9 +271,9 @@ SewQueen['IntroduceCMD']({
 (async (QueenSew, input) => { 
         try {
 await downloadapksewqueen(QueenSew, input);
-               } catch {
-                       return
-                       }
+               } catch (e) {
+                  return await QueenSew.client.sendMessage(QueenSew.jid,'Sorry I Could Not Find This Apk!',MessageType.text, { quoted: QueenSew.data})
+                  }
 })); 
 
 SewQueen['IntroduceCMD']({
@@ -254,7 +282,11 @@ SewQueen['IntroduceCMD']({
         dontAdCommandList: true
         }, 
 (async (QueenSew, input) => { 
+        try {
 await sendMessageDownloader(QueenSew, input, 'playstoresearch');
+                } catch (e) {
+                  return await QueenSew.client.sendMessage(QueenSew.jid,'Sorry I Could Not Find Your Search!',MessageType.text, { quoted: QueenSew.data})
+                  }
 })); 
 SewQueen['IntroduceCMD']({
         pattern: 'brodcast ?(.*)',    // Brodcast Without Making List (unlimited user add option)
@@ -286,7 +318,11 @@ SewQueen['IntroduceCMD']({
         dontAdCommandList: true
         }, 
 (async (QueenSew, input) => { 
+        try {
 await sendMessageDownloader(QueenSew, input, 'sitescreenshot');
+                } catch (e) {
+                  return await QueenSew.client.sendMessage(QueenSew.jid,'Sorry I Could Not Find This Site!',MessageType.text, { quoted: QueenSew.data})
+                  }
 })); 
 SewQueen['IntroduceCMD']({
         pattern: 'spdf ?(.*)',   //Site To PDF
@@ -294,7 +330,11 @@ SewQueen['IntroduceCMD']({
         dontAdCommandList: true
         }, 
 (async (QueenSew, input) => { 
+        try {
 await sendMessageDownloader(QueenSew, input, 'sitepdf');
+                } catch (e) {
+                  return await QueenSew.client.sendMessage(QueenSew.jid,'Sorry I Could Not Find This Site!',MessageType.text, { quoted: QueenSew.data})
+                  }
 })); 
 SewQueen['IntroduceCMD']({
         pattern: 'pornhub ?(.*)',   //pronhub video download and search
@@ -318,7 +358,11 @@ SewQueen['IntroduceCMD']({
         dontAdCommandList: true
         }, 
 (async (QueenSew, input) => { 
+        try {
 await sendMessageDownloader(QueenSew, input, 'downsong');
+                } catch (e) {
+                  return await QueenSew.client.sendMessage(QueenSew.jid,'Sorry I Could Not Find This Song!',MessageType.text, { quoted: QueenSew.data})
+                  }
 })); 
 SewQueen['IntroduceCMD']({
         pattern: 'video ?(.*)',   // Youtube Video Downloader
@@ -326,7 +370,11 @@ SewQueen['IntroduceCMD']({
         dontAdCommandList: true
         }, 
 (async (QueenSew, input) => { 
+        try {
 await sendMessageDownloader(QueenSew, input, 'downvideo');
+                } catch (e) {
+                  return await QueenSew.client.sendMessage(QueenSew.jid,'Sorry I Could Not Find! Try With Youtube URl',MessageType.text, { quoted: QueenSew.data})
+                  }
 })); 
 SewQueen['IntroduceCMD']({
         pattern: 'ytd ?(.*)',   // helpers
@@ -334,7 +382,11 @@ SewQueen['IntroduceCMD']({
         dontAdCommandList: true
         }, 
 (async (QueenSew, input) => { 
+        try {
 await sendMessageDownloader(QueenSew, input, 'dlvid');
+                } catch (e) {
+                  return await QueenSew.client.sendMessage(QueenSew.jid,'Sorry I Could Not Find This Youtube Video!',MessageType.text, { quoted: QueenSew.data})
+                  }
 })); 
 SewQueen['IntroduceCMD']({
         pattern: 'tikd ?(.*)', //helper
@@ -342,7 +394,11 @@ SewQueen['IntroduceCMD']({
         dontAdCommandList: true
         }, 
 (async (QueenSew, input) => { 
+        try {
 await sendMessageDownloader(QueenSew, input, 'dltik');
+                } catch (e) {
+                  return await QueenSew.client.sendMessage(QueenSew.jid,'Sorry I Could Not Find This Tiktok Video!',MessageType.text, { quoted: QueenSew.data})
+                  }
 })); 
 SewQueen['IntroduceCMD']({
         pattern: 'dfb ?(.*)',   // helper
@@ -350,7 +406,11 @@ SewQueen['IntroduceCMD']({
         dontAdCommandList: true
         }, 
 (async (QueenSew, input) => { 
+        try {
 await sendMessageDownloader(QueenSew, input, 'dlfb');
+                } catch (e) {
+                  return await QueenSew.client.sendMessage(QueenSew.jid,'Sorry I Could Not Find This Facebook Video!',MessageType.text, { quoted: QueenSew.data})
+                  }
 })); 
 
 SewQueen['IntroduceCMD']({
