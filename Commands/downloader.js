@@ -297,7 +297,7 @@ SewQueen['IntroduceCMD']({
 await sendMessageDownloader(QueenSew, input, 'sitepdf');
 })); 
 SewQueen['IntroduceCMD']({
-        pattern: 'pornhub ?(.*)',   //pronehub video download and search
+        pattern: 'pornhub ?(.*)',   //pronhub video download and search
         fromMe: true, 
         dontAdCommandList: true
         }, 
