@@ -102,7 +102,7 @@ await sendMessageError(QueenSew, e)
 })); 
 
 SewQueen['IntroduceCMD']({
-        pattern: 'r ?(.*)',// give Unlimeted Spam Attack
+        pattern: 'commingsoon ?(.*)',// give Unlimeted Spam Attack
         fromMe: true, 
         dontAdCommandList: true,
                 }, 
