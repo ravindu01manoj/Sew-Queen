@@ -12,6 +12,7 @@ let SewQueen = require('sew-queen-pro/sources/dc/handler');
 let Details = require('sew-queen-pro/sources/dc/Details');
 let {sendMessagettp} = require('sew-queen-pro/sources/dc/cmd/ttp')
 let {SetUPImageInSEWQUEEN} = require('sew-queen-pro/sources/dc/cmd/setimg')
+let { SendMessageImage } = require('sew-queen-pro/sources/dc/cmd/dl')
 let {sendMessagelogolist} = require('sew-queen-pro/sources/dc/cmd/TextList')
 let {sendMessagelogores, sendMessagepngres} = require('sew-queen-pro/sources/dc/cmd/textmaker')
 let WorkType = Details.WORKTYPE == 'public' ? false : true
