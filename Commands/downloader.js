@@ -74,7 +74,7 @@ SewQueen['IntroduceCMD']({
         dontAdCommandList: true
         }, 
 (async (QueenSew, input) => { 
-        
+        if (QueenSew.reply_message === false || QueenSew.reply_message.image === false) return await QueenSew.client.sendMessage(QueenSew.jid,'Reply To Any Image...',MessageType.text);
         try {
 await sendMessageDownloader(QueenSew, input, 'imgurl')
         } catch (e) {
