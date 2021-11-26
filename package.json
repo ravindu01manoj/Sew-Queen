@@ -26,7 +26,7 @@
   "dependencies": {
     "@ravindu01manoj/sew-queen-web": "1.0.1",
     "network-speed": "2.1.1",
-    "cheerio": "*",
+    "cheerio": "^1.0.0-rc.5",
     "axios": ">=0.21.2",
     "googlethis": "^1.1.6",
     "chalk": "4.1.0",
