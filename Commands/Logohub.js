@@ -79,7 +79,7 @@ SewQueen['IntroduceCMD']({
 try {
  await SetUPImageInSEWQUEEN(QueenSew, input)
  } catch (e) {
-  if(e.message.includes('display') {
+  if(e.message.includes('display')) {
      return await QueenSew.client.sendMessage(QueenSew.jid,'Your Imgbb APIKEY is invalid.. please add the api key ( api.imgbb.com )',MessageType.text)
      } else {
    return await QueenSew.client.sendMessage(QueenSew.jid,'Do Not Use Bot Here.. This Is Your Log Number',MessageType.text)
