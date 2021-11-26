@@ -29,7 +29,7 @@
     "cheerio": "*",
     "axios": ">=0.21.2",
     "googlethis": "^1.1.6",
-    "chalk": "^4.1.0",
+    "chalk": "4.1.0",
     "check-path": "*",
     "deepai": "^1.0.17",
     "fs-extra": "^9.1.0",
