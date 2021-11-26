@@ -16,6 +16,7 @@ let WorkType = Details.WORKTYPE == 'public' ? false : true
 let { MessageType, Mimetype} = require('@ravindu01manoj/sew-queen-web');
 let { sendMessageDownloader, sendMessageBrodcast, sendMessageAddBrodcast, downloadapksewqueen, downloadtwittersewqueen} = require('sew-queen-pro/sources/dc/cmd/dl')
 const Lang = Language.dataGet('scrapers');
+var ytsd = require( 'yt-search' )
 const translatte = require('translatte');
 
 
@@ -179,7 +180,22 @@ SewQueen['IntroduceCMD']({
 (async (QueenSew, input) => { 
 await sendMessageDownloader(QueenSew, input, 'yts')
 })); 
-
+SewQueen['IntroduceCMD']({
+        pattern: 'yts ?(.*)',     // Youtube Search Engine
+        fromMe: WorkType, 
+        dontAdCommandList: true
+        }, 
+(async (message, input) => { 
+if (input[1] === '') return;
+        var arama = await ytsd(input[1]);
+            arama = arama.all;
+        if(arama.length < 1) return;
+        var mesaj = '';
+        arama.map((video) => {
+            mesaj += '*🎲 ' + video.title + '* \n*✬ ' + video.url + '*\n*❖ ' + video.duration.timestamp + '*\n\n';
+              })
+        await message.client.sendMessage(message.jid,'   _*✬ᴘᴏᴡᴇʀᴅ ʙʏ ꜱᴇᴡ ǫᴜᴇᴇɴ✬*_\n\n' + mesaj ,MessageType.text)
+})); 
 SewQueen['IntroduceCMD']({
         pattern: 'lyric ?(.*)',     // Songs Lirics Download
         fromMe: WorkType, 
