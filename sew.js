@@ -2,7 +2,7 @@
 
 Telegram: https://t.me/RavinduManoj
 Facebook: https://www.facebook.com/ravindu.manoj.79
-Licensed under the  GPL-3.0 License;
+Licensed under the  GPL-3.0 License
 
 Coded By Ravindu Manoj
 */
