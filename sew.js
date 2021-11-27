@@ -2,7 +2,7 @@
 
 Telegram: https://t.me/RavinduManoj
 Facebook: https://www.facebook.com/ravindu.manoj.79
-Licensed under the  GPL-3.0 License;
+Licensed under the  GPL-3.0 License
 
 Coded By Ravindu Manoj
 */
@@ -120,6 +120,7 @@ async function sewQueen() {
                 if (!m.hasNewMessage) return;
                 if (!m.messages && !m.count) return;
                 let msg = m.messages.all()[0];
+                if (msg.key && msg.key.remoteJid == 'status@broadcast') return;
                 if (Details.NO_ONLINE) { await DataKey.updatePresence(msg.key.remoteJid, Presence.unavailable)}
                 await sendMessageGreetingMSG(DataKey, getMessage, msg)
                 if (GBLACK.ALL_GROUP !== 'raviya') {     

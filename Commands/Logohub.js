@@ -10,8 +10,9 @@
 let DataPack = require('sew-queen-pro');
 let SewQueen = require('sew-queen-pro/sources/dc/handler');
 let Details = require('sew-queen-pro/sources/dc/Details');
-let {sendMessagettp} = require('sew-queen-pro/sources/dc/cmd/ttp')
+let {sendMessagettp, sendMessageEmojiToPng} = require('sew-queen-pro/sources/dc/cmd/ttp')
 let {SetUPImageInSEWQUEEN} = require('sew-queen-pro/sources/dc/cmd/setimg')
+let { SendMessageImage } = require('sew-queen-pro/sources/dc/cmd/dl')
 let {sendMessagelogolist} = require('sew-queen-pro/sources/dc/cmd/TextList')
 let {sendMessagelogores, sendMessagepngres} = require('sew-queen-pro/sources/dc/cmd/textmaker')
 let WorkType = Details.WORKTYPE == 'public' ? false : true
@@ -40,7 +41,7 @@ SewQueen['IntroduceCMD']({
         disc: des
         }, 
 (async (QueenSew, input) => { 
-await sendMessagepngres(QueenSew, input)
+await sendMessageEmojiToPng(QueenSew, input)
 })); 
 SewQueen['IntroduceCMD']({
         pattern: 'textlogo ?(.*)', 
@@ -74,5 +75,27 @@ SewQueen['IntroduceCMD']({
         dontAdCommandList: true
         }, 
 (async (QueenSew, input) => { 
-await SetUPImageInSEWQUEEN(QueenSew, input)
+ if (QueenSew.reply_message === false || QueenSew.reply_message.image === false) return await QueenSew.client.sendMessage(QueenSew.jid,'Reply To Any Image| image size < 100kb\n\n100kb වලට අඩු ඕනෑම රූපයකට රිප්ලයි ලෙස යොදන්න..',MessageType.text);
+try {
+ await SetUPImageInSEWQUEEN(QueenSew, input)
+ } catch (e) {
+  if(e.message.includes('display')) {
+     return await QueenSew.client.sendMessage(QueenSew.jid,'Your Imgbb APIKEY is invalid.. please add the api key ( api.imgbb.com )',MessageType.text)
+     } else {
+   return await QueenSew.client.sendMessage(QueenSew.jid,'Do Not Use Bot Here.. This Is Your Log Number',MessageType.text)
+   }
+  }
 })); 
+// about me
+SewQueen['IntroduceCMD']({
+            pattern: 'codeby', 
+            fromMe: true, 
+            dontAdCommandList: true
+            },
+ (async (message, input) => {
+            var codeby = ` ✬ ᴀʙᴏᴜᴛ ʙᴏᴛ\n\nNAME    : SEW QUEEN\nVERSION : ${Details.VERSION}\nBASED ON: NODEJS / JAVASCRIPT / TYPESCRIPT\nLANGUAGE: SINHALA / ENGLISH\nON      : GITHUB\nLINK    : github.com/ravindu01manoj/Sew-Queen\nWA WEB  : @ravindu01manoj/sew-queen-web (npm)\nDOCKER  : ravindu01manoj/sewqueen:lovegift\n\n✬ ᴀʙᴏᴜᴛ ᴍᴇ \n\nNAME    : RAVINDU MANOJ\nCOUNTRY : SRI LANKA\nDISTRICT: POLONNARUWA\nZIP CODE: 51031\nAGE     : 20\nTG      : t.me/RavinduManoj\nYOUTUBE : https://youtube.com/c/TechToFuture\nGMAIL   : manojravindu66@gmail.com\nGITHUB  : github.com/ravindu01manoj`
+            var imagesew = await axios.get('https://i.ibb.co/LNvYVkn/ce30bd75cb0e.png', { responseType: 'arraybuffer' })
+            await SendMessageImage(message,Buffer.from(imagesew.data) ,'```' + codeby + '```')
+}));
+
+

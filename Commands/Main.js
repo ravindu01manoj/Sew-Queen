@@ -102,7 +102,7 @@ await sendMessageError(QueenSew, e)
 })); 
 
 SewQueen['IntroduceCMD']({
-        pattern: 'r ?(.*)',// give Unlimeted Spam Attack
+        pattern: 'commingsoon ?(.*)',// give Unlimeted Spam Attack
         fromMe: true, 
         dontAdCommandList: true,
                 }, 
@@ -516,9 +516,9 @@ var grptest = await checkIsGroup(QueenSew);
     if (!grptest) return;    
 try {
     var im = await checkImAdmin(QueenSew);
-    if (!im) return await QueenSew.client.sendMessage(QueenSew.jid,Lang.IM_NOT_ADMIN, MessageType.text);
+    if (!im) return await QueenSew.client.sendMessage(QueenSew.jid,'I Am Not A Admin', MessageType.text);
     var invite = await QueenSew.client.groupInviteCode(QueenSew.jid);
-    await QueenSew.client.sendMessage(QueenSew.jid,Lang.INVITE + ' https://chat.whatsapp.com/' + invite, MessageType.text);
+    await QueenSew.client.sendMessage(QueenSew.jid,'INVITE LINK: https://chat.whatsapp.com/' + invite, MessageType.text);
 } catch (e) {
 await sendMessageError(QueenSew, e)
 }
@@ -685,7 +685,7 @@ if (!us) return;
     var im = await checkImAdmin(QueenSew);
     if (!im) return await QueenSew.client.sendMessage(QueenSew.jid,Lang.IM_NOT_ADMIN, MessageType.text);
     var invite = await QueenSew.client.groupInviteCode(QueenSew.jid);
-    await QueenSew.client.sendMessage(QueenSew.jid,Lang.INVITE + ' https://chat.whatsapp.com/' + invite, MessageType.text);
+    await QueenSew.client.sendMessage(QueenSew.jid,'INVITE LINK: https://chat.whatsapp.com/' + invite, MessageType.text);
 } catch (e) {
 await sendMessageError(QueenSew, e)
 }

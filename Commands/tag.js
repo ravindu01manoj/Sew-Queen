@@ -49,31 +49,25 @@ SewQueen['IntroduceCMD']({ pattern: 'scan ?(.*)', fromMe: WorkType, desc: DATA.S
 
 SewQueen['IntroduceCMD']({pattern: 'tag ?(.*)', fromMe: true, desc: DATA.TAGALL_DESC }, (async (message, input) => {
 var nwjson = await message.client.groupMetadata(message.jid)
-    if (input[1] !== '') {
+    if (input[1] !== '' && input[1] !== 'admin') {
         grup = await message.client.groupMetadata(message.jid);
-        var jids = [];
-        mesaj = '';
+        var jids = []
         grup['participants'].map(
             async (uye) => {
-                mesaj += '▫️💠 @' + uye.id.split('@')[0] + ' 💠\n';
                 jids.push(uye.id.replace('c.us', 's.whatsapp.net'));
             }
         );
-        await message.client.sendMessage(message.jid,nwjson.subject + '\n\n   ❄Group Members❄\n\n' + mesaj, MessageType.extendedText, {contextInfo: {mentionedJid: jids}, previewType: 0})
         await message.client.sendMessage(message.jid,`${input[1]}`, MessageType.extendedText, {contextInfo: {mentionedJid: jids}, previewType: 0})
     }
     else if (message.reply_message && input[1] == '') {
         grup = await message.client.groupMetadata(message.jid);
         var jids = [];
-        mesaj = '';
         grup['participants'].map(
             async (uye) => {
-                mesaj += '▫️💠 @' + uye.id.split('@')[0] + ' 💠\n';
                 jids.push(uye.id.replace('c.us', 's.whatsapp.net'));
             }
         );
-        await message.client.sendMessage(message.jid,nwjson.subject + '\n\n   ❄Group Members❄\n\n' + mesaj, MessageType.extendedText, {contextInfo: {mentionedJid: jids}, previewType: 0})
-        await message.client.sendMessage(message.jid,message.reply_message.text, MessageType.extendedText, {contextInfo: {mentionedJid: jids}, previewType: 0})
+         await message.client.sendMessage(message.jid,message.reply_message.text, MessageType.extendedText, {contextInfo: {mentionedJid: jids}, previewType: 0})
     }
     else if (input[1] == '') {
         grup = await message.client.groupMetadata(message.jid);
@@ -95,31 +89,25 @@ SewQueen['IntroduceCMD']({pattern: 'tag ?(.*)', fromMe: false, desc: DATA.TAGALL
 var us = await checkUsAdmin(message)
 if (!us) return;
 var nwjson = await message.client.groupMetadata(message.jid)
-    if (input[1] !== '') {
+    if (input[1] !== '' && input[1] !== 'admin') {
         grup = await message.client.groupMetadata(message.jid);
-        var jids = [];
-        mesaj = '';
+        var jids = []
         grup['participants'].map(
             async (uye) => {
-                mesaj += '▫️💠 @' + uye.id.split('@')[0] + ' 💠\n';
                 jids.push(uye.id.replace('c.us', 's.whatsapp.net'));
             }
         );
-        await message.client.sendMessage(message.jid,nwjson.subject + '\n\n   ❄Group Members❄\n\n' + mesaj, MessageType.extendedText, {contextInfo: {mentionedJid: jids}, previewType: 0})
         await message.client.sendMessage(message.jid,`${input[1]}`, MessageType.extendedText, {contextInfo: {mentionedJid: jids}, previewType: 0})
     }
     else if (message.reply_message && input[1] == '') {
         grup = await message.client.groupMetadata(message.jid);
         var jids = [];
-        mesaj = '';
         grup['participants'].map(
             async (uye) => {
-                mesaj += '▫️💠 @' + uye.id.split('@')[0] + ' 💠\n';
                 jids.push(uye.id.replace('c.us', 's.whatsapp.net'));
             }
         );
-        await message.client.sendMessage(message.jid,nwjson.subject + '\n\n   ❄Group Members❄\n\n' + mesaj, MessageType.extendedText, {contextInfo: {mentionedJid: jids}, previewType: 0})
-        await message.client.sendMessage(message.jid,message.reply_message.text, MessageType.extendedText, {contextInfo: {mentionedJid: jids}, previewType: 0})
+         await message.client.sendMessage(message.jid,message.reply_message.text, MessageType.extendedText, {contextInfo: {mentionedJid: jids}, previewType: 0})
     }
     else if (input[1] == '') {
         grup = await message.client.groupMetadata(message.jid);
@@ -134,9 +122,11 @@ var nwjson = await message.client.groupMetadata(message.jid)
         await message.client.sendMessage(message.jid,nwjson.subject + '\n\n   ❄Group Members❄\n\n' + mesaj, MessageType.extendedText, {contextInfo: {mentionedJid: jids}, previewType: 0})
     }
     
+    
 }));
 let ABSEW = DataHelp.dataGet('admincont');
-    SewQueen['IntroduceCMD']({pattern: 'tagadmin', fromMe: WorkType, desc: ABSEW.CONTADMİN}, (async (message, input) => {
+    SewQueen['IntroduceCMD']({pattern: 'tagadmin', fromMe: false, desc: ABSEW.CONTADMİN}, (async (message, input) => {
+        if (Details.WORKTYPE !== 'public') return;
         var nwjson = await message.client.groupMetadata(message.jid) 
         let grup = await message.client.groupMetadata(message.jid);
         var jids = [];
@@ -149,7 +139,6 @@ let ABSEW = DataHelp.dataGet('admincont');
         });
         await message.client.sendMessage(message.jid,'${nwjson.subject}\n◻    🔱    *👑 Group Admins 👑*    🔱    ◻\n\n\n' + mesaj, MessageType.extendedText, {contextInfo: {mentionedJid: jids}, previewType: 0})
     }));
-if (Details.WORKTYPE == 'public') {
     SewQueen['IntroduceCMD']({pattern: 'tagadmin', fromMe: true, desc: ABSEW.CONTADMİN, dontAdCommandList: true}, (async (message, input) => {
     var nwjson = await message.client.groupMetadata(message.jid) 
         let grup = await message.client.groupMetadata(message.jid);
@@ -163,4 +152,3 @@ if (Details.WORKTYPE == 'public') {
         });
         await message.client.sendMessage(message.jid,nwjson.subject + '\n\n◻    🔱    *👑 Group Admins 👑*    🔱    ◻\n\n\n' + mesaj, MessageType.extendedText, {contextInfo: {mentionedJid: jids}, previewType: 0})
     }));
-}

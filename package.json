@@ -25,6 +25,7 @@
   "homepage": "https://github.com/ravindu01manoj/Sew-Queen#readme",
   "dependencies": {
     "@ravindu01manoj/sew-queen-web": "1.0.1",
+    "emoji-to-png-sew": "1.0.5",
     "network-speed": "2.1.1",
     "cheerio": "^1.0.0-rc.5",
     "axios": ">=0.21.2",
