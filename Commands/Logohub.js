@@ -10,7 +10,7 @@
 let DataPack = require('sew-queen-pro');
 let SewQueen = require('sew-queen-pro/sources/dc/handler');
 let Details = require('sew-queen-pro/sources/dc/Details');
-let {sendMessagettp} = require('sew-queen-pro/sources/dc/cmd/ttp')
+let {sendMessagettp, sendMessageEmojiToPng} = require('sew-queen-pro/sources/dc/cmd/ttp')
 let {SetUPImageInSEWQUEEN} = require('sew-queen-pro/sources/dc/cmd/setimg')
 let { SendMessageImage } = require('sew-queen-pro/sources/dc/cmd/dl')
 let {sendMessagelogolist} = require('sew-queen-pro/sources/dc/cmd/TextList')
@@ -41,7 +41,7 @@ SewQueen['IntroduceCMD']({
         disc: des
         }, 
 (async (QueenSew, input) => { 
-await sendMessagepngres(QueenSew, input)
+await sendMessageEmojiToPng(QueenSew, input)
 })); 
 SewQueen['IntroduceCMD']({
         pattern: 'textlogo ?(.*)', 
