@@ -20,7 +20,7 @@ SewQueen['IntroduceCMD']({
         dontAdCommandList: true
        }, 
 (async (QueenSew, input) => {
-var grp = await checkIsGroup()
+var grp = await checkIsGroup(QueenSew)
 if (!grp) return;
 
 if(input[1].includes('/-/') || input[1].includes('/=/') || (input[1].includes('/') && input[1].includes(','))) {
