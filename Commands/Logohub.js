@@ -10,6 +10,7 @@
 let DataPack = require('sew-queen-pro');
 let SewQueen = require('sew-queen-pro/sources/dc/handler');
 let Details = require('sew-queen-pro/sources/dc/Details');
+let axios = require('axios');
 let {sendMessagettp, sendMessageEmojiToPng} = require('sew-queen-pro/sources/dc/cmd/ttp')
 let {SetUPImageInSEWQUEEN} = require('sew-queen-pro/sources/dc/cmd/setimg')
 let { SendMessageImage } = require('sew-queen-pro/sources/dc/cmd/dl')
