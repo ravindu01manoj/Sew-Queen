@@ -15,9 +15,9 @@ let Language = DataPack.constdata
 let WorkType = Details.WORKTYPE == 'public' ? false : true
 let { MessageType, Mimetype} = require('@ravindu01manoj/sew-queen-web');
 let { sendMessageDownloader, sendMessageBrodcast, sendMessageAddBrodcast, downloadapksewqueen, downloadtwittersewqueen} = require('sew-queen-pro/sources/dc/cmd/dl')
-const Lang = Language.dataGet('scrapers');
+const Lang = Language.dataGet('scrapers')
 var ytsd = require( 'yt-search' )
-const translatte = require('translatte');
+const translatte = require('translatte')
 
 
 SewQueen['IntroduceCMD']({
@@ -43,7 +43,7 @@ SewQueen['IntroduceCMD']({
 await sendMessageDownloader(QueenSew, input, 'insta')
                 } catch (e) {
                   return await QueenSew.client.sendMessage(QueenSew.jid,'Sorry I Could Not Find This Insta Video!',MessageType.text, { quoted: QueenSew.data})
-                  }
+              }
 })); 
 
 SewQueen['IntroduceCMD']({
