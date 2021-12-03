@@ -70,7 +70,7 @@ async function sewQueen() {
         await sendMessageownerMSG(DataKey); await sendMessageADSMSG(DataKey)
         DataKey.logger.level = Details.DEBUG ? 'debug' : 'warn';
         var Lostdb;
-        if (StrSes_Db.length < 1 || Details.SESSION_CLEAR) {
+        if (StrSes_Db.length < 1) {
                 Lostdb = true;
                 DataKey.loadAuthInfo(Session.deCrypt(Details.SESSION));
         } else {
