@@ -29,15 +29,15 @@ let REPORT_DESC = "For The Report...."
 let AAA = "*⚠⚠Report Accepted⚠⚠*\n✔"
 let AAB = ", Unusual Activity Detected"
 let AAC = ", 🎲🎲.\n\n\n*********************************"
-let NEED_NUM = "*Give me a user!*\n__✨"
+let NEED_NUM = "*Give me a user!*"
 let REPORT = "⚠ @{} ⚠"
 
-let SEWA = "⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠\n\n         *❆❉☣REPORTED☣❉❆*\n         \n*to*:-"
+let SEWA = "         *❆❉☣REPORTED☣❉❆*\n         \n*to*:-"
 let SEWB = "\nUser:-"
 let SEWC = "\n\n\n*Reason*:-"
 let SEWD = "\n\n*Sec Reson*:-"
 let SEWE = "╔═══════════ೋೋ═══════════╗\n╠       ⚠⚠⚠*Report Detected*⚠⚠⚠\n\n"
-let SEWF = "\n╠           *👆👆Group Admins👆👆*                      \n╚═══════════ೋೋ═══════════╝\n\n_*Please Wait For Admins Respond*_\n\n\n\n         *👑ᴘᴏᴡᴇʀᴅ ʙʏ ꜱᴇᴡ ǫᴜᴇᴇɴ👑*\n\n⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠"
+let SEWF = "\n╠           *👆👆Group Admins👆👆*                      \n╚═══════════ೋೋ═══════════╝\n\n_*Please Wait For Admins Respond*_"
 SewQueen['IntroduceCMD']({pattern: 'report ?(.*)', fromMe: WorkType, desc: REPORT_DESC}, (async (message, input) => {    
         if (message.reply_message !== false, input[1] === '') {
         var SewRep;{
@@ -90,8 +90,9 @@ SewQueen['IntroduceCMD']({pattern: 'report ?(.*)', fromMe: WorkType, desc: REPOR
         
     }));
     
-    SewQueen['IntroduceCMD']({pattern: 'report ?(.*)', fromMe: true, desc: REPORT_DESC}, (async (message, input) => {    
-        if (message.reply_message !== false, input[1] === '') {
+    SewQueen['IntroduceCMD']({pattern: 'report ?(.*)', fromMe: true, dontAdCommandList: true}, (async (message, input) => {    
+        if(Details.WORKTYPE !=='public') return;
+         if (message.reply_message !== false, input[1] === '') {
         var SewRep;{
         SewRep = input[1];
         }
