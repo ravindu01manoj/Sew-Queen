@@ -47,7 +47,7 @@ SewQueen['IntroduceCMD']({ pattern: 'scan ?(.*)', fromMe: WorkType, desc: DATA.S
         }
     }));
 
-SewQueen['IntroduceCMD']({pattern: 'tag ?(.*)', fromMe: true, desc: DATA.TAGALL_DESC }, (async (message, input) => {
+SewQueen['IntroduceCMD']({pattern: 'tag ?(.*)', fromMe: true, dontAdCommandList: true }, (async (message, input) => {
 var nwjson = await message.client.groupMetadata(message.jid)
     if (input[1] !== '' && input[1] !== 'admin') {
         grup = await message.client.groupMetadata(message.jid);
@@ -85,7 +85,7 @@ var nwjson = await message.client.groupMetadata(message.jid)
 }));
 
 
-SewQueen['IntroduceCMD']({pattern: 'tag ?(.*)', fromMe: false, desc: DATA.TAGALL_DESC }, (async (message, input) => {
+SewQueen['IntroduceCMD']({pattern: 'tag ?(.*)', fromMe: false, dontAdCommandList: true }, (async (message, input) => {
 var us = await checkUsAdmin(message)
 if (!us) return;
 var nwjson = await message.client.groupMetadata(message.jid)
@@ -125,7 +125,7 @@ var nwjson = await message.client.groupMetadata(message.jid)
     
 }));
 let ABSEW = DataHelp.dataGet('admincont');
-    SewQueen['IntroduceCMD']({pattern: 'tagadmin', fromMe: false, desc: ABSEW.CONTADMİN}, (async (message, input) => {
+    SewQueen['IntroduceCMD']({pattern: 'tagadmin', fromMe: false, dontAdCommandList: true}, (async (message, input) => {
         if (Details.WORKTYPE !== 'public') return;
         var nwjson = await message.client.groupMetadata(message.jid) 
         let grup = await message.client.groupMetadata(message.jid);
