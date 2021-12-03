@@ -11,7 +11,7 @@ let DataPack = require('sew-queen-pro');
 let SewQueen = require('sew-queen-pro/sources/dc/handler');
 let Details = require('sew-queen-pro/sources/dc/Details');
 let axios = require('axios');
-let {sendMessagettp, sendMessageEmojiToPng} = require('sew-queen-pro/sources/dc/cmd/ttp')
+let {sendMessagettp, sendMessageEmojiToPng, sendMessageAboutUs} = require('sew-queen-pro/sources/dc/cmd/ttp')
 let {SetUPImageInSEWQUEEN} = require('sew-queen-pro/sources/dc/cmd/setimg')
 let { SendMessageImage } = require('sew-queen-pro/sources/dc/cmd/dl')
 let {sendMessagelogolist} = require('sew-queen-pro/sources/dc/cmd/TextList')
@@ -89,14 +89,12 @@ try {
 })); 
 // about me
 SewQueen['IntroduceCMD']({
-            pattern: 'codeby', 
+            pattern: 'about', 
             fromMe: true, 
             dontAdCommandList: true
             },
- (async (message, input) => {
-            var codeby = ` ✬ ᴀʙᴏᴜᴛ ʙᴏᴛ\n\nNAME    : SEW QUEEN\nVERSION : ${Details.VERSION}\nBASED ON: NODEJS / JAVASCRIPT / TYPESCRIPT\nLANGUAGE: SINHALA / ENGLISH\nON      : GITHUB\nLINK    : github.com/ravindu01manoj/Sew-Queen\nWA WEB  : @ravindu01manoj/sew-queen-web (npm)\nDOCKER  : ravindu01manoj/sewqueen:lovegift\n\n✬ ᴀʙᴏᴜᴛ ᴍᴇ \n\nNAME    : RAVINDU MANOJ\nCOUNTRY : SRI LANKA\nDISTRICT: POLONNARUWA\nZIP CODE: 51031\nAGE     : 20\nTG      : t.me/RavinduManoj\nYOUTUBE : https://youtube.com/c/TechToFuture\nGMAIL   : manojravindu66@gmail.com\nGITHUB  : github.com/ravindu01manoj`
-            var imagesew = await axios.get('https://i.ibb.co/LNvYVkn/ce30bd75cb0e.png', { responseType: 'arraybuffer' })
-            await SendMessageImage(message,Buffer.from(imagesew.data) ,'```' + codeby + '```')
+ (async (QueenSew, input) => {
+ await sendMessageAboutUs(QueenSew, input)
 }));
 
 
