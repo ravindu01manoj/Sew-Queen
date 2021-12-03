@@ -19,19 +19,10 @@ let {sendMessagelogores, sendMessagepngres} = require('sew-queen-pro/sources/dc/
 let WorkType = Details.WORKTYPE == 'public' ? false : true
 var { FancyText, fancyList } = require("fancy-sew-amdi")
 let { MessageType, Mimetype } = require('@ravindu01manoj/sew-queen-web');
-var LOGODISC = '';
-var des = '';
-if (Details.LANG == 'SI') {
-   des = 'ඉමෝජි පින්තූර බවට පත් කරයි'
-   LOGODISC = '350 කට අදික ඌ ලෝගො සෑදීම සදහා යොදා ගන්න.අනිවාරයෙන් වචන දෙකක් යෙදිය යුතු අතර වචන දෙක / මගින් වෙන් කරන්න.\n🎲උදා:- .textlogo SEW / QUEEN'
-} else {
-   des = "You Can Png From Any Emoji"
-   LOGODISC = '350+ Text To Image and Logo Maker... Need Two Words And Split Them Using /\neg : .textlogo SEW / Queen '
-}
 SewQueen['IntroduceCMD']({
         pattern: 'attp ?(.*)', 
         fromMe: WorkType, 
-        disc: 'ttp and 250+ sticker making command...\n*Usage:-* .attp Sew'
+        dontAdCommandList: true
        }, 
 (async (QueenSew, input) => {
  await sendMessagettp(QueenSew, input)
@@ -39,7 +30,7 @@ SewQueen['IntroduceCMD']({
 SewQueen['IntroduceCMD']({
         pattern: 'png ?(.*)', 
         fromMe: WorkType, 
-        disc: des
+        dontAdCommandList: true
         }, 
 (async (QueenSew, input) => { 
 await sendMessageEmojiToPng(QueenSew, input)
@@ -47,7 +38,7 @@ await sendMessageEmojiToPng(QueenSew, input)
 SewQueen['IntroduceCMD']({
         pattern: 'textlogo ?(.*)', 
         fromMe: WorkType, 
-        disc: LOGODISC
+        dontAdCommandList: true
         }, 
 (async (QueenSew, input) => { 
 await sendMessagelogolist(QueenSew, input)
@@ -56,7 +47,7 @@ await sendMessagelogores(QueenSew, input)
 SewQueen['IntroduceCMD']({
         pattern: 'fancy ?(.*)', 
         fromMe: WorkType, 
-        disc: '118+ Fancy Text Maker With Unlimited Access'
+        dontAdCommandList: true
         }, 
 (async (QueenSew, input) => { 
 if(input[1].includes('//--//')) {
