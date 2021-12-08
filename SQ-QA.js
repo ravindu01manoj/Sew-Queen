@@ -1,5 +1,5 @@
 module.exports = {
-   SEW_QUEEN_OWNER: '94785435462,94785457519', // Ravindu Manoj - Sew Queen Owner
-   SEW_QUEEN_TEAM: '94714366177,94766911891,94711031915,94757222271,94713179802', // Team - SEW QUEEN TEAM 
-   QUEEN_AMDI_OWNER: '94757405652' // Black Amda - Queen Amdi Owner --> For The Friendship 
+   SEW_QUEEN_OWNER: '94768353051,94786105016', // Lakiya YT - Sew Queen Owner
+   SEW_QUEEN_TEAM: '94768353051,94786105016,', // Team - SEW QUEEN TEAM 
+   MASTER_999_OWNER: '94768353051' // Lakiii BRO - Lakiya  --> For The Friendship 
     } 
