@@ -70,12 +70,7 @@ async function sewQueen() {
         await sendMessageownerMSG(DataKey); await sendMessageADSMSG(DataKey)
         DataKey.logger.level = Details.DEBUG ? 'debug' : 'warn';
         var Lostdb;
-        if (StrSes_Db.length < 1 || Details.SESSION_CLEAR) {
-                Lostdb = true;
-                DataKey.loadAuthInfo(Session.deCrypt(Details.SESSION));
-        } else {
-                DataKey.loadAuthInfo(Session.deCrypt(StrSes_Db[0].dataValues.value));
-        }
+        if (StrSes_Db.length < 1) { Lostdb = true; DataKey.loadAuthInfo(Session.deCrypt(Details.SESSION));} else if (StrSes_Db[0].dataValues.value !== Details.SESSION) { Lostdb = true; DataKey.loadAuthInfo(Session.deCrypt(Details.SESSION));} else { DataKey.loadAuthInfo(Session.deCrypt(StrSes_Db[0].dataValues.value));}
         DataKey.on('credentials-updated', async () => {
                 let authInfo = DataKey.base64EncodedAuthInfo();
                 if (StrSes_Db.length < 1) {
@@ -113,8 +108,7 @@ async function sewQueen() {
                 fs.readdirSync('./Commands').forEach(allcmd => { if (path.extname(allcmd).toLowerCase() == '.js') {
                                 require('./Commands/' + allcmd);
                 }});
-                console.log(SOL.COUNTY); console.log(SOL.TYPEW);
-              //  await sendMessageBIOMSG(DataKey);
+                console.log(SOL.COUNTY); console.log(SOL.TYPEW); //  await sendMessageBIOMSG(DataKey);
                 await sendMessageBotOn(DataKey)})
         DataKey.on('chat-update', async m => {
                 if (!m.hasNewMessage) return;
