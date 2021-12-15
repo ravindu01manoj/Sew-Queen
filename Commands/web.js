@@ -9,7 +9,7 @@ Licensed under the  GPL-3.0 License;
 Coded By Ravindu Manoj
 
 */ 
-let DataPack = require('sew-queen-pro');
+let DataPack = require('metro-queen-pro');
 let SewQueen = require('sew-queen-pro/sources/dc/handler');
 let Details = require('sew-queen-pro/sources/dc/Details');
 let {sendMessagecalculate} = require('sew-queen-pro/sources/dc/cmd/cal')
