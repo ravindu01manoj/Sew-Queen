@@ -36,7 +36,13 @@ let heroku = new Heroku({
     token: Details.HEROKU.API_KEY
 });
 let baseURI = '/apps/' + Details.HEROKU.APP_NAME;
-
+var STP = '';
+    
+                if (/\[(\W*)\]/.test(Details.HANDLERS)) {
+                    STP = Details.HANDLERS.match(/\[(\W*)\]/)[1][0];
+                } else {
+                    STP = '.';
+                }
 let recognizeAudio = () => {
     let headers = new Headers({
         'Content-Type': 'audio/wav',
@@ -82,7 +88,7 @@ SewQueen['IntroduceCMD']({on: 'text', fromMe: false, dontAdCommandList: true, de
     }
 }));
 SewQueen['IntroduceCMD']({on: 'text', fromMe: false, delownsewcmd: false}, (async (message, input) => {
-if(message.message.startsWith('.')) return;
+if(message.message.startsWith(STP)) return;
         if (Details.SEW_AI == 'true') {
             if (message.jid.includes('g.us') && (message.mention !== false && message.mention.length !== 0)) {
                 message.mention.map(async (jid) => {
