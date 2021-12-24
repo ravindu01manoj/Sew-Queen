@@ -82,6 +82,7 @@ SewQueen['IntroduceCMD']({on: 'text', fromMe: false, dontAdCommandList: true, de
     }
 }));
 SewQueen['IntroduceCMD']({on: 'text', fromMe: false, delownsewcmd: false}, (async (message, input) => {
+if(message.message.startsWith('.')) return;
         if (Details.SEW_AI == 'true') {
             if (message.jid.includes('g.us') && (message.mention !== false && message.mention.length !== 0)) {
                 message.mention.map(async (jid) => {
