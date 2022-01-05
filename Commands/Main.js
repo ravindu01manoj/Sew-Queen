@@ -157,7 +157,7 @@ await sendMessageError(QueenSew, e)
 
 SewQueen['IntroduceCMD']({
         pattern: 'autoreply ?(.*)', 
-        fromMe: WorkType, 
+        fromMe: true, 
         dontAdCommandList: true
         }, 
 (async (QueenSew, input) => { 
@@ -169,7 +169,7 @@ await sendMessageError(QueenSew, e)
 })); 
 SewQueen['IntroduceCMD']({
         pattern: 'replydel ?(.*)', 
-        fromMe: WorkType, 
+        fromMe: true, 
         dontAdCommandList: true
         }, 
 (async (QueenSew, input) => { 
