@@ -139,7 +139,7 @@ if(message.message.startsWith(STP)) return;
                         await message.client.sendMessage(message.jid,fins, MessageType.text, { quoted: message.data})
                     })
                 }
-            } else {
+            } else if(!message.jid.includes('g.us')) {
                 var unique_ident = message.client.user.jid.split('@')[0]      
                 
                 var finm = message.message
