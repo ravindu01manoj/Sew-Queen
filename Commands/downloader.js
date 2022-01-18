@@ -15,6 +15,7 @@ let Language = DataPack.constdata
 let WorkType = Details.WORKTYPE == 'public' ? false : true
 let { MessageType, Mimetype} = require('@ravindu01manoj/sew-queen-web');
 let { sendMessageDownloader, sendMessageBrodcast, sendMessageAddBrodcast, downloadapksewqueen, downloadtwittersewqueen} = require('sew-queen-pro/sources/dc/cmd/dl')
+let { ytdocdlBackupForSewQueen }
 const Lang = Language.dataGet('scrapers')
 var ytsd = require( 'yt-search' )
 const translatte = require('translatte')
@@ -394,8 +395,11 @@ SewQueen['IntroduceCMD']({
         try {
 await sendMessageDownloader(QueenSew, input, 'dlvid');
                 } catch (e) {
+                        try{
+                        await ytdocdlBackupForSewQueen(QueenSew, input)
+                              }  catch(e) {
                   return await QueenSew.client.sendMessage(QueenSew.jid,'Sorry I Could Not Find This Youtube Video!',MessageType.text, { quoted: QueenSew.data})
-                  }
+                  }}
 })); 
 SewQueen['IntroduceCMD']({
         pattern: 'tikd ?(.*)', //helper
