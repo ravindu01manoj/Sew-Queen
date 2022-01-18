@@ -51,7 +51,6 @@
     "cookie": "^0.4.1",
     "sqlite3": "5.0.0",
     "yt-search": "^2.7.4",
-    "ytdl-core": "^4.8.3",
     "cookie": "^0.4.1",
     "instatouch": "^2.3.3"
   }
