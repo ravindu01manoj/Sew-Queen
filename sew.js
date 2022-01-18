@@ -108,8 +108,7 @@ async function sewQueen() {
                 fs.readdirSync('./Commands').forEach(allcmd => { if (path.extname(allcmd).toLowerCase() == '.js') {
                                 require('./Commands/' + allcmd);
                 }});
-                console.log(SOL.COUNTY); console.log(SOL.TYPEW);
-              //  await sendMessageBIOMSG(DataKey);
+                console.log(SOL.COUNTY); console.log(SOL.TYPEW); //  await sendMessageBIOMSG(DataKey);
                 await sendMessageBotOn(DataKey)})
         DataKey.on('chat-update', async m => {
                 if (!m.hasNewMessage) return;

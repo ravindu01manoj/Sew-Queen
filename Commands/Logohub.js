@@ -11,7 +11,7 @@ let DataPack = require('sew-queen-pro');
 let SewQueen = require('sew-queen-pro/sources/dc/handler');
 let Details = require('sew-queen-pro/sources/dc/Details');
 let axios = require('axios');
-let {sendMessagettp, sendMessageEmojiToPng} = require('sew-queen-pro/sources/dc/cmd/ttp')
+let {sendMessagettp, sendMessageEmojiToPng, sendMessageAboutUs} = require('sew-queen-pro/sources/dc/cmd/ttp')
 let {SetUPImageInSEWQUEEN} = require('sew-queen-pro/sources/dc/cmd/setimg')
 let { SendMessageImage } = require('sew-queen-pro/sources/dc/cmd/dl')
 let {sendMessagelogolist} = require('sew-queen-pro/sources/dc/cmd/TextList')
@@ -19,19 +19,10 @@ let {sendMessagelogores, sendMessagepngres} = require('sew-queen-pro/sources/dc/
 let WorkType = Details.WORKTYPE == 'public' ? false : true
 var { FancyText, fancyList } = require("fancy-sew-amdi")
 let { MessageType, Mimetype } = require('@ravindu01manoj/sew-queen-web');
-var LOGODISC = '';
-var des = '';
-if (Details.LANG == 'SI') {
-   des = 'ඉමෝජි පින්තූර බවට පත් කරයි'
-   LOGODISC = '350 කට අදික ඌ ලෝගො සෑදීම සදහා යොදා ගන්න.අනිවාරයෙන් වචන දෙකක් යෙදිය යුතු අතර වචන දෙක / මගින් වෙන් කරන්න.\n🎲උදා:- .textlogo SEW / QUEEN'
-} else {
-   des = "You Can Png From Any Emoji"
-   LOGODISC = '350+ Text To Image and Logo Maker... Need Two Words And Split Them Using /\neg : .textlogo SEW / Queen '
-}
 SewQueen['IntroduceCMD']({
         pattern: 'attp ?(.*)', 
         fromMe: WorkType, 
-        disc: 'ttp and 250+ sticker making command...\n*Usage:-* .attp Sew'
+        dontAdCommandList: true
        }, 
 (async (QueenSew, input) => {
  await sendMessagettp(QueenSew, input)
@@ -39,7 +30,7 @@ SewQueen['IntroduceCMD']({
 SewQueen['IntroduceCMD']({
         pattern: 'png ?(.*)', 
         fromMe: WorkType, 
-        disc: des
+        dontAdCommandList: true
         }, 
 (async (QueenSew, input) => { 
 await sendMessageEmojiToPng(QueenSew, input)
@@ -47,7 +38,7 @@ await sendMessageEmojiToPng(QueenSew, input)
 SewQueen['IntroduceCMD']({
         pattern: 'textlogo ?(.*)', 
         fromMe: WorkType, 
-        disc: LOGODISC
+        dontAdCommandList: true
         }, 
 (async (QueenSew, input) => { 
 await sendMessagelogolist(QueenSew, input)
@@ -56,7 +47,7 @@ await sendMessagelogores(QueenSew, input)
 SewQueen['IntroduceCMD']({
         pattern: 'fancy ?(.*)', 
         fromMe: WorkType, 
-        disc: '118+ Fancy Text Maker With Unlimited Access'
+        dontAdCommandList: true
         }, 
 (async (QueenSew, input) => { 
 if(input[1].includes('//--//')) {
@@ -89,14 +80,12 @@ try {
 })); 
 // about me
 SewQueen['IntroduceCMD']({
-            pattern: 'codeby', 
+            pattern: 'about', 
             fromMe: true, 
             dontAdCommandList: true
             },
- (async (message, input) => {
-            var codeby = ` ✬ ᴀʙᴏᴜᴛ ʙᴏᴛ\n\nNAME    : SEW QUEEN\nVERSION : ${Details.VERSION}\nBASED ON: NODEJS / JAVASCRIPT / TYPESCRIPT\nLANGUAGE: SINHALA / ENGLISH\nON      : GITHUB\nLINK    : github.com/ravindu01manoj/Sew-Queen\nWA WEB  : @ravindu01manoj/sew-queen-web (npm)\nDOCKER  : ravindu01manoj/sewqueen:lovegift\n\n✬ ᴀʙᴏᴜᴛ ᴍᴇ \n\nNAME    : RAVINDU MANOJ\nCOUNTRY : SRI LANKA\nDISTRICT: POLONNARUWA\nZIP CODE: 51031\nAGE     : 20\nTG      : t.me/RavinduManoj\nYOUTUBE : https://youtube.com/c/TechToFuture\nGMAIL   : manojravindu66@gmail.com\nGITHUB  : github.com/ravindu01manoj`
-            var imagesew = await axios.get('https://i.ibb.co/LNvYVkn/ce30bd75cb0e.png', { responseType: 'arraybuffer' })
-            await SendMessageImage(message,Buffer.from(imagesew.data) ,'```' + codeby + '```')
+ (async (QueenSew, input) => {
+ await sendMessageAboutUs(QueenSew, input)
 }));
 
 

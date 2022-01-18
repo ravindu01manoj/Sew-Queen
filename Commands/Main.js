@@ -1,4 +1,5 @@
 /* 
+
  Sew Queen Whatsapp Bot                       
 
  Telegram: t.me/RavinduManoj
@@ -31,7 +32,7 @@ let SEWB = 'Successfully Changed'
 let CLR_DESC = 'Chat clear'
 let { ReplyMessegedelete, sendMessageResetgroup, sendMessageJoingroup,
         sendMessageKickgroup, sendMessageAddgroup, sendMessagePromogroup,
-        sendMessageDimogroup, sendMessageMutegroup, sendMessageUnmutgroup, 
+        sendMessageDimogroup, sendMessageGroupMute, sendMessageUnmutgroup, 
         sendMessageDpgroup, sendMessageGetstatus, sendMessageClearlist, sendMessageTextboom, 
         sendMessageMpboom, sendMessageJpboom, sendMessageStickboom, sendMessageVidboom, 
         sendMessagecommgrp, sendMessagediffgrp, sendMessageinbox} = require('sew-queen-pro/sources/dc/cmd/admin');
@@ -485,7 +486,7 @@ SewQueen['IntroduceCMD']({
 var grptest = await checkIsGroup(QueenSew);
     if (!grptest) return;    
 try {
-await sendMessageMutegroup(QueenSew, input)
+await sendMessageGroupMute(QueenSew, input)
 } catch (e) {
 await sendMessageError(QueenSew, e)
 }
@@ -648,7 +649,7 @@ var grptest = await checkIsGroup(QueenSew);
 try {  
 var us = await checkUsAdmin(QueenSew)
 if (!us) return;  
-await sendMessageMutegroup(QueenSew, input)
+await sendMessageGroupMute(QueenSew, input)
 } catch (e) {
 await sendMessageError(QueenSew, e)
 }

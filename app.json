@@ -87,10 +87,6 @@
             "description": "කැප්ශන් එක ඇතුලත් කරන්න... Enter the Caption",
             "required": false
          },
-        "IMGBB_API": {
-            "description": "Add the api i.ibb.co site..==> i.ibb.co සයිට් එකට ලොග් වී ලබා ගන්නා api එක ඇතුලත් කරන්න",
-            "required": false
-         },
           "ZZ_PASSWORD": {
             "description": "බොට්ව සෑදීම සදහා පාස්වර්ඩ් එකක් අවශ්‍ය අතර වීඩියෝව නරඹා එය ලබා ගන්න.password required.. watch the video ==> https://youtu.be/AKU7YVXxMbM",
             "required": true

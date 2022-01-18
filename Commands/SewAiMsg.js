@@ -90,6 +90,7 @@ SewQueen['IntroduceCMD']({on: 'text', fromMe: false, dontAdCommandList: true, de
 SewQueen['IntroduceCMD']({on: 'text', fromMe: false, delownsewcmd: false}, (async (message, input) => {
 if(message.message.startsWith(STP)) return;
         if (Details.SEW_AI == 'true') {
+		if (message.message.startsWith('.')) return;
             if (message.jid.includes('g.us') && (message.mention !== false && message.mention.length !== 0)) {
                 message.mention.map(async (jid) => {
                     if (message.client.user.jid.split('@')[0] === jid.split('@')[0]) {
@@ -139,7 +140,8 @@ if(message.message.startsWith(STP)) return;
                         await message.client.sendMessage(message.jid,fins, MessageType.text, { quoted: message.data})
                     })
                 }
-            } else if(!message.jid.includes('g.us')) {
+            
+	    } else if(!message.jid.includes('g.us')) {
                 var unique_ident = message.client.user.jid.split('@')[0]      
                 
                 var finm = message.message

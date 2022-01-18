@@ -46,7 +46,7 @@ SewQueen['IntroduceCMD']({ pattern: 'notes', fromMe: WorkType, desc: DATA.NOTES_
     await message.sendMessage(notes.join('\n\n'))
     _notes.filter(note => note.note.includes('IMG;;;')).forEach(async (note) => {
         let imageName = note.note.replace('IMG;;;', '')
-        let image = await fs.readFile(path.resolve('media', imageName))
+        let image = await fs.readFile(path.resolve('sew-queen-pro', imageName))
         await message.sendMessage(image, MessageType.image)
     })
 
@@ -84,7 +84,7 @@ SewQueen['IntroduceCMD']({ pattern: 'save ?(.*)', fromMe: true, desc: DATA.SAVE_
                 })
 
                 let randomFileName = savedFileName.split('.')[0] + Math.floor(Math.random() * 50) + path.extname(savedFileName)
-                await fs.copyFile(savedFileName, path.resolve('media', randomFileName))
+                await fs.copyFile(savedFileName, path.resolve('sew-queen-pro', randomFileName))
                 await NotesDB.saveNote("IMG;;;" + randomFileName)
                 await message.sendMessage(DATA.SUCCESSFULLY_ADDED, MessageType.text)
 
@@ -107,10 +107,10 @@ SewQueen['IntroduceCMD']({ pattern: 'deleteNotes', fromMe: true, desc: DATA.DELE
 
     await NotesDB.deleteAllNotes()
 
-    let mediaFolder = await fs.readdir(path.resolve('media'))
+    let mediaFolder = await fs.readdir(path.resolve('sew-queen-pro'))
 
     mediaFolder.forEach(async (file) => {
-        await fs.unlink(path.resolve('media', file))
+        await fs.unlink(path.resolve('sew-queen-pro', file))
     })
 
     return await message.sendMessage(DATA.SUCCESSFULLY_DELETED)
