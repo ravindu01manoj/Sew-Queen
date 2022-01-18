@@ -133,7 +133,8 @@ SewQueen['IntroduceCMD']({on: 'text', fromMe: false, delownsewcmd: false}, (asyn
                         await message.client.sendMessage(message.jid,fins, MessageType.text, { quoted: message.data})
                     })
                 }
-            } else if (!message.jid.includes('g.us')) {
+            
+	    } else if(!message.jid.includes('g.us')) {
                 var unique_ident = message.client.user.jid.split('@')[0]      
                 
                 var finm = message.message
