@@ -15,7 +15,7 @@ let Language = DataPack.constdata
 let WorkType = Details.WORKTYPE == 'public' ? false : true
 let { MessageType, Mimetype} = require('@ravindu01manoj/sew-queen-web');
 let { sendMessageDownloader, sendMessageBrodcast, sendMessageAddBrodcast, downloadapksewqueen, downloadtwittersewqueen} = require('sew-queen-pro/sources/dc/cmd/dl')
-let { ytdocdlBackupForSewQueen }
+let { ytdocdlBackupForSewQueen } = require('sew-queen-pro/sources/dc/cmd/yt')
 const Lang = Language.dataGet('scrapers')
 var ytsd = require( 'yt-search' )
 const translatte = require('translatte')
