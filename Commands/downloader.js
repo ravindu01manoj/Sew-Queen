@@ -398,7 +398,7 @@ await sendMessageDownloader(QueenSew, input, 'dlvid');
                         try{
                         await ytdocdlBackupForSewQueen(QueenSew, input)
                               }  catch(e) {
-                  return await QueenSew.client.sendMessage(QueenSew.jid,'Sorry I Could Not Find This Youtube Video!\n' + e,MessageType.text, { quoted: QueenSew.data})
+                  return await QueenSew.client.sendMessage(QueenSew.jid,'Not Found This Youtube Video!',MessageType.text, { quoted: QueenSew.data})
                   }}
 })); 
 SewQueen['IntroduceCMD']({
