@@ -22,7 +22,7 @@ const translatte = require('translatte')
 
 
 SewQueen['IntroduceCMD']({
-        pattern: 'mediafire ?(.*)', // Mediafire Download 
+        pattern: 'mediafire ?(.*)', // Mediafire Download
         fromMe: WorkType, 
         dontAdCommandList: true
         }, 
@@ -35,7 +35,7 @@ await sendMessageDownloader(QueenSew, input, 'mediafire')
 })); 
 
 SewQueen['IntroduceCMD']({
-        pattern: 'insta ?(.*)',  // instagram Download 
+        pattern: 'insta ?(.*)',  // instagram Download
         fromMe: WorkType, 
         dontAdCommandList: true
         }, 
