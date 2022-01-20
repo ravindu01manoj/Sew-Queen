@@ -86,6 +86,7 @@ var nwjson = await message.client.groupMetadata(message.jid)
 
 
 SewQueen['IntroduceCMD']({pattern: 'tag ?(.*)', fromMe: false, dontAdCommandList: true }, (async (message, input) => {
+    if (Details.GRPMANAGE !== 'true') return; if(!Details.GRPMANAGE) return;
 var us = await checkUsAdmin(message)
 if (!us) return;
 var nwjson = await message.client.groupMetadata(message.jid)
