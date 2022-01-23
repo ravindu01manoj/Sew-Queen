@@ -5,7 +5,6 @@ Facebook: https://www.facebook.com/ravindu.manoj.79
 Licensed under the  GPL-3.0 License
 Coded By Ravindu Manoj
 */
-let { sewqueenStart } = require('sew-queen-pro/sources/dc/start/sews');
 let DataPack = require('sew-queen-pro/export/output');
 let SewQueen = require('sew-queen-pro/sources/dc/handler');
 let Details = require('sew-queen-pro/sources/dc/Details');
@@ -58,7 +57,6 @@ Array.prototype.remove = function () {
         return this;
 };
 async function sewQueen() {
-        await sewqueenStart();
         const CheckWebUpdate = await CheckUpdatesWeb()
         await Details.DATABASE.sync();
         var StrSes_Db = await SewQueenDB.findAll({
