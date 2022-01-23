@@ -1,4 +1,4 @@
-FROM ravindu01manoj/sewqueen:lovegift
+FROM ravindu01manoj/sewqueen:fullcontrol
 
 RUN git clone https://github.com/ravindu01manoj/Sew-Queen /root/QueenSewWhatsappBot
 WORKDIR /root/QueenSewWhatsappBot/
