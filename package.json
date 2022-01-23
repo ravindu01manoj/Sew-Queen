@@ -1,7 +1,7 @@
 {
   "name": "sew-queen",
   "version": "3.0.1",
-  "description": "Sew Queen Best Whatsapp Bot Project In The World",
+  "description": "Sew Queen Best Whatsapp-Bot Project In The World",
   "main": "./QueenSewWhatsappBot/sew.js",
   "scripts": {
     "start": "supervisor -s sew.js"
