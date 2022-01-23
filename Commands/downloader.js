@@ -347,14 +347,6 @@ await sendMessageDownloader(QueenSew, input, 'sitepdf');
                   }
 })); 
 SewQueen['IntroduceCMD']({
-        pattern: 'pornhub ?(.*)',   //pronhub video download and search
-        fromMe: true, 
-        dontAdCommandList: true
-        }, 
-(async (QueenSew, input) => { 
-await sendMessageDownloader(QueenSew, input, 'pornhubdownload');
-})); 
-SewQueen['IntroduceCMD']({
         pattern: 'downimg ?(.*)',   //
         fromMe: WorkType, 
         dontAdCommandList: true
@@ -424,17 +416,4 @@ await sendMessageDownloader(QueenSew, input, 'dlfb');
                 } catch (e) {
                   return await QueenSew.client.sendMessage(QueenSew.jid,'Sorry I Could Not Find This Facebook Video!',MessageType.text, { quoted: QueenSew.data})
                   }
-})); 
-
-SewQueen['IntroduceCMD']({
-        pattern: 'dphub ?(.*)',   // helper
-        fromMe: WorkType, 
-        dontAdCommandList: true
-        }, 
-(async (QueenSew, input) => { 
-        try {
-await sendMessageDownloader(QueenSew, input, 'phubdl');
-              }  catch {
-                      return
-                      }
 })); 
