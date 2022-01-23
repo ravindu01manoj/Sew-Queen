@@ -83,48 +83,6 @@ var nwjson = await message.client.groupMetadata(message.jid)
     }
     
 }));
-
-
-SewQueen['IntroduceCMD']({pattern: 'tag ?(.*)', fromMe: false, dontAdCommandList: true }, (async (message, input) => {
-    if (Details.GRPMANAGE !== 'true') return;
-var us = await checkUsAdmin(message)
-if (!us) return;
-var nwjson = await message.client.groupMetadata(message.jid)
-    if (input[1] !== '' && input[1] !== 'admin') {
-        grup = await message.client.groupMetadata(message.jid);
-        var jids = []
-        grup['participants'].map(
-            async (uye) => {
-                jids.push(uye.id.replace('c.us', 's.whatsapp.net'));
-            }
-        );
-        await message.client.sendMessage(message.jid,`${input[1]}`, MessageType.extendedText, {contextInfo: {mentionedJid: jids}, previewType: 0})
-    }
-    else if (message.reply_message && input[1] == '') {
-        grup = await message.client.groupMetadata(message.jid);
-        var jids = [];
-        grup['participants'].map(
-            async (uye) => {
-                jids.push(uye.id.replace('c.us', 's.whatsapp.net'));
-            }
-        );
-         await message.client.sendMessage(message.jid,message.reply_message.text, MessageType.extendedText, {contextInfo: {mentionedJid: jids}, previewType: 0})
-    }
-    else if (input[1] == '') {
-        grup = await message.client.groupMetadata(message.jid);
-        var jids = [];
-        mesaj = '';
-        grup['participants'].map(
-            async (uye) => {
-                mesaj += '▫️💠 @' + uye.id.split('@')[0] + ' 💠\n';
-                jids.push(uye.id.replace('c.us', 's.whatsapp.net'));
-            }
-        );
-        await message.client.sendMessage(message.jid,nwjson.subject + '\n\n   ❄Group Members❄\n\n' + mesaj, MessageType.extendedText, {contextInfo: {mentionedJid: jids}, previewType: 0})
-    }
-    
-    
-}));
 let ABSEW = DataHelp.dataGet('admincont');
     SewQueen['IntroduceCMD']({pattern: 'tagadmin', fromMe: false, dontAdCommandList: true}, (async (message, input) => {
         if (Details.WORKTYPE !== 'public') return;
