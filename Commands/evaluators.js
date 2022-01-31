@@ -38,7 +38,7 @@ var dd = ''
 var errmsg = ''
 if (Details.LANG == 'SI') dd = 'සර්වර් එකෙහි ප්‍රින්ට් වේ.', errmsg = '*ඔබ ඇතුලත් කල ෆයිල් එක සර්වර් එක තුල නොමැත!*'
 if (Details.LANG == 'EN') dd = 'Prints the inside of the file on the server.', errmsg = '*The file you are looking for is not available on the server!*'
-
+/*
 SewQueen['IntroduceCMD']({pattern: 'print ?(.*)', fromMe: true, desc: dd}, (async (message, input) => {    
     exec('cat ' + input[1], async (err, stdout, stderr) => {
         if (err) {
@@ -47,6 +47,7 @@ SewQueen['IntroduceCMD']({pattern: 'print ?(.*)', fromMe: true, desc: dd}, (asyn
         await message.client.sendMessage(message.jid, `Root ~# ${input[1]} \n\n` + stdout, MessageType.text)
     });
 }));
+*/
 var bdesc = ''
 var berr = ''
 var need_way = ''
