@@ -18,16 +18,6 @@ let {Message, StringSession, Image, Video} =  require('sew-queen-pro/sources/dc/
 let { DataTypes } = require('sequelize'); let { getMessage } = require("./DataBase/greetings");
 let Heroku = require('heroku-client'); let simpleGit = require('simple-git'); let git = simpleGit();
 let heroku = new Heroku({ token: Details.HEROKU.API_KEY}); let baseURI = '/apps/' + Details.HEROKU.APP_NAME;
-let SewQueenDB = Details.DATABASE.define('SewQueen', {
-        info: {
-                type: DataTypes.STRING,
-                allowNull: false
-        },
-        value: {
-                type: DataTypes.TEXT,
-                allowNull: false
-        }
-});
 fs.readdirSync('./DataBase/').forEach(cmdall => { if (path.extname(cmdall).toLowerCase() == '.js') {
                 require('./DataBase/' + cmdall)
 }})
@@ -59,27 +49,15 @@ Array.prototype.remove = function () {
 async function sewQueen() {
         const CheckWebUpdate = await CheckUpdatesWeb()
         await Details.DATABASE.sync();
-        var StrSes_Db = await SewQueenDB.findAll({
-                where: {
-                        info: 'StringSession'
-        }});
         const DataKey = new WAConnection();
         DataKey.version = CheckWebUpdate;
         let Session = new StringSession();
         await sendMessageownerMSG(DataKey); await sendMessageADSMSG(DataKey)
         DataKey.logger.level = Details.DEBUG ? 'debug' : 'warn';
-        var Lostdb;
-        if (StrSes_Db.length < 1) { Lostdb = true; DataKey.loadAuthInfo(Session.deCrypt(Details.SESSION));} else if (StrSes_Db[0].dataValues.value !== Details.SESSION) { Lostdb = true; DataKey.loadAuthInfo(Session.deCrypt(Details.SESSION));} else { DataKey.loadAuthInfo(Session.deCrypt(StrSes_Db[0].dataValues.value));}
+        if (Details.SESSION) {DataKey.loadAuthInfo(Session.deCrypt(Details.SESSION));
+        } else { console.log('Need SEW_QUEEN_SESSION \n'.repeat(50));return;}
         DataKey.on('credentials-updated', async () => {
                 let authInfo = DataKey.base64EncodedAuthInfo();
-                if (StrSes_Db.length < 1) {
-                        await SewQueenDB.create({
-                                info: "StringSession",
-                                value: Session.createStringSession(authInfo)
-                })} else {
-                        await StrSes_Db[0].update({
-                                value: Session.createStringSession(authInfo)
-                        })}
         })
         DataKey.on('connecting', async () => {
                 console.log(SOL.LOGING);
@@ -123,11 +101,5 @@ async function sewQueen() {
                 });
         try {
         await DataKey.connect();
-    } catch {
-                if (!Lostdb) {
-                        DataKey.loadAuthInfo(Session.deCrypt(Details.SESSION));
-                        try {
-                                await DataKey.connect();
-                        } catch {
-                                return;}}}};
+    } catch {return;}};
     sewQueen()
