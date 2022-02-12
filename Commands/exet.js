@@ -13,7 +13,7 @@ let { createPollWithSewAnyGroupChat } = require('sew-queen-pro/sources/dc/cmd/wa
 let {SendMessageToStatus, checkIsGroup} = require('sew-queen-pro/sources/dc/cmd/admin')
 let { MessageType } = require('@ravindu01manoj/sew-queen-web');
 let WorkType = Details.WORKTYPE == 'public' ? false : true
-
+/*
 SewQueen['IntroduceCMD']({
         pattern: 'poll ?(.*)', 
         fromMe: WorkType, 
@@ -30,7 +30,7 @@ await createPollWithSewAnyGroupChat(QueenSew, input)
  return await QueenSew.client.sendMessage(QueenSew.jid,'Poll Option Is Undefined.. Please Use This Type\n\n.poll poll header/poll list name/poll1,poll2,poll3,poll4', MessageType.text)
  }
 }));
-
+*/
 SewQueen['IntroduceCMD']({
         pattern: 'setst ?(.*)', 
         fromMe: WorkType, 
