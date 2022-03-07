@@ -3,6 +3,7 @@
     "description": "World Best Whatsapp Bot",
     "logo": "https://i.ibb.co/cQQ7RkC/main.jpg",
     "keywords": ["sew", "sewqueen"],
+    "repository": "https://github.com/crazybunnyts/Hashzi-X",
     "stack": "container",
     "env": {
         "_SEW_QUEEN_SESSION": {
