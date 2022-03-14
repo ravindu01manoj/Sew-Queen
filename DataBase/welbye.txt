@@ -2,4 +2,6 @@ no-saved-data-for-welcome
 ---sew--queen---
 no-saved-data-for-goodbye
 ---sew--queen---
-no-saved-jids
+no-saved-jids-wc
+---sew--queen---
+no-saved-jids-gb
