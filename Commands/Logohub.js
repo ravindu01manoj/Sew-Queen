@@ -12,7 +12,6 @@ let SewQueen = require('sew-queen-pro/sources/dc/handler');
 let Details = require('sew-queen-pro/sources/dc/Details');
 let axios = require('axios');
 let {sendMessagettp, sendMessageEmojiToPng, sendMessageAboutUs} = require('sew-queen-pro/sources/dc/cmd/ttp')
-let {SetUPImageInSEWQUEEN} = require('sew-queen-pro/sources/dc/cmd/setimg')
 let { SendMessageImage } = require('sew-queen-pro/sources/dc/cmd/dl')
 let {sendMessagelogolist} = require('sew-queen-pro/sources/dc/cmd/TextList')
 let {sendMessagelogores, sendMessagepngres} = require('sew-queen-pro/sources/dc/cmd/textmaker')
@@ -60,24 +59,6 @@ var list = await fancyList(input[1])
 await QueenSew.client.sendMessage(QueenSew.jid, list, MessageType.listMessage)
 }
 }));
-
-SewQueen['IntroduceCMD']({
-        pattern: 'setimg ?(.*)', 
-        fromMe: true, 
-        dontAdCommandList: true
-        }, 
-(async (QueenSew, input) => { 
- if (QueenSew.reply_message === false || QueenSew.reply_message.image === false) return await QueenSew.client.sendMessage(QueenSew.jid,'Reply To Any Image| image size < 100kb\n\n100kb වලට අඩු ඕනෑම රූපයකට රිප්ලයි ලෙස යොදන්න..',MessageType.text);
-try {
- await SetUPImageInSEWQUEEN(QueenSew, input)
- } catch (e) {
-  if(e.message.includes('display')) {
-     return await QueenSew.client.sendMessage(QueenSew.jid,'Your Imgbb APIKEY is invalid.. please add the api key ( api.imgbb.com )',MessageType.text)
-     } else {
-   return await QueenSew.client.sendMessage(QueenSew.jid,'Do Not Use Bot Here.. This Is Your Log Number',MessageType.text)
-   }
-  }
-})); 
 // about me
 SewQueen['IntroduceCMD']({
             pattern: 'about', 
