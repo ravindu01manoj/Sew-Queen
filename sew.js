@@ -20,6 +20,9 @@ let {WAConnection, MessageOptions, MessageType, Mimetype, Presence} = require('@
 let {Message, StringSession, Image, Video} =  require('sew-queen-pro/sources/dc/Wa-Base/');
 let Heroku = require('heroku-client'); let simpleGit = require('simple-git'); let git = simpleGit();
 let heroku = new Heroku({ token: Details.HEROKU.API_KEY}); let baseURI = '/apps/' + Details.HEROKU.APP_NAME;
+let spliter = `
+---sew--queen---
+`
 String.prototype.format = function () {
         var i = 0,
                 args = arguments;
@@ -48,6 +51,7 @@ require("sew-queen-pro/protection/herokubanprotect");
 
 async function sewQueen() {
         if(Db.MONGOURI){ await ConnectSewQueenDatabase(); console.log('🪄 Database Successfully Updated')}
+        let {getdatafromSewQueenDatabase} = require('sew-queen-pro/db/main');
         const CheckWebUpdate = await CheckUpdatesWeb()
         await Details.DATABASE.sync();
         const DataKey = new WAConnection();
@@ -71,7 +75,6 @@ async function sewQueen() {
                         throw new Error(SOL.PASSW); return;
                 }
             console.log(SOL.INSTCL); console.log(SOL.INSTC); console.log(SOL.INSTL);
-            let {getdatafromSewQueenDatabase} = require('sew-queen-pro/db/main');
             var dcommands = await getdatafromSewQueenDatabase('commands') + ','
            if(!dcommands.includes('no-saved-data')){
            var Commands = dcommands.split(',')
@@ -95,7 +98,8 @@ async function sewQueen() {
                 if (Details.NO_ONLINE) { await DataKey.updatePresence(msg.key.remoteJid, Presence.unavailable)}
                 await sendMessageGreetingMSG(DataKey, msg)
                 if (GBLACK.ALL_GROUP !== 'raviya') {     
-                var grp = GBLACK.ALL_GROUP + ',' + Details.BLOCKCHAT;var sup = grp.split(',')
+                 var chatblock = getdatafromSewQueenDatabase('ownerblockchat').split(spliter)
+                var sup = GBLACK.ALL_GROUP + ',' + chatblock[1];
                 if(msg.key.remoteJid.includes('g.us') ? sup.includes(msg.key.remoteJid.split('@')[0]) : sup.includes(msg.participant ? msg.participant.split('@')[0] : msg.key.remoteJid.split('@')[0])) return}
                 await sendMessageMSGMSG(DataKey, msg, 'sew', SQQA)
                 });
