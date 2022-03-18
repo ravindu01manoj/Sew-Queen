@@ -51,6 +51,9 @@
     "pg": "8.5.1",
     "cookie": "^0.4.1",
     "yt-search": "^2.7.4",
+    "ssl-express-www": "^3.0.7",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
     "instatouch": "^2.3.3"
   }
 }
