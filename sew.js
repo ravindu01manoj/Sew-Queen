@@ -11,7 +11,6 @@ let {ConnectSewQueenDatabase} = require('sew-queen-pro/db/autosave');
 let Db = require("./DataBase/db");
 let SewQueen = require('sew-queen-pro/sources/dc/handler');
 let Details = require('sew-queen-pro/sources/dc/Details');
-let Mon = require('./DataBase/db');
 let GBLACK =require('blocked-s/grp')
 let SOL =require('sew-queen-pro/console')
 let {CheckUpdatesWeb, sendMessageownerMSG, sendMessageADSMSG, sendMessageBotOn, sendMessageGreetingMSG, sendMessageMSGMSG, sendMessageBlackListMSG, sendMessageBIOMSG} = require('sew-queen-pro/sources/dc/sew')
