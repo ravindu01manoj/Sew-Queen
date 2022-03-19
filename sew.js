@@ -53,7 +53,6 @@ async function sewQueen() {
         if(Db.MONGOURI){ await ConnectSewQueenDatabase(); console.log('🪄 Database Successfully Updated')}
         let {getdatafromSewQueenDatabase} = require('sew-queen-pro/db/main');
         const CheckWebUpdate = await CheckUpdatesWeb()
-        await Details.DATABASE.sync();
         const DataKey = new WAConnection();
         DataKey.version = CheckWebUpdate;
         let Session = new StringSession();
