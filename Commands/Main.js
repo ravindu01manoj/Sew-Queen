@@ -157,45 +157,6 @@ await sendMessageError(QueenSew, e)
 })); 
 
 SewQueen['IntroduceCMD']({
-        pattern: 'autoreply ?(.*)', 
-        fromMe: true, 
-        dontAdCommandList: true
-        }, 
-(async (QueenSew, input) => { 
-try {
-await sendMessageAutoReply(QueenSew, input, 'set')
-} catch (e) {
-await sendMessageError(QueenSew, e)
-}
-})); 
-SewQueen['IntroduceCMD']({
-        pattern: 'replydel ?(.*)', 
-        fromMe: true, 
-        dontAdCommandList: true
-        }, 
-(async (QueenSew, input) => { 
-try {
-await sendMessageAutoReply(QueenSew, input, 'del')
-} catch (e) {
-await sendMessageError(QueenSew, e)
-}
-})); 
-
-SewQueen['IntroduceCMD']({
-        on: 'text', 
-        fromMe: false, 
-        dontAdCommandList: true, 
-        delownsewcmd: false
-        },
-(async (QueenSew, input) => {
-try {
-await sendMessageAutoReply(QueenSew, input, 'send')
-} catch (e) {
-await sendMessageError(QueenSew, e)
-}
-}))
-
-SewQueen['IntroduceCMD']({
         pattern: 'warn ?(.*)', 
         fromMe: true, 
         dontAdCommandList: true,

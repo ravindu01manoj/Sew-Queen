@@ -3,9 +3,12 @@
 Telegram: https://t.me/RavinduManoj
 Facebook: https://www.facebook.com/ravindu.manoj.79
 Licensed under the  GPL-3.0 License
+
 Coded By Ravindu Manoj
 */
 let DataPack = require('sew-queen-pro/export/output');
+let {ConnectSewQueenDatabase} = require('sew-queen-pro/db/autosave');
+let Db = require("./DataBase/db");
 let SewQueen = require('sew-queen-pro/sources/dc/handler');
 let Details = require('sew-queen-pro/sources/dc/Details');
 let GBLACK =require('blocked-s/grp')
@@ -15,13 +18,11 @@ let fs = require('fs'); let os = require('os'); let got = require('got'); let pa
 let SQQA = require('./SQ-QA')
 let {WAConnection, MessageOptions, MessageType, Mimetype, Presence} = require('@ravindu01manoj/sew-queen-web');  
 let {Message, StringSession, Image, Video} =  require('sew-queen-pro/sources/dc/Wa-Base/');
-let { DataTypes } = require('sequelize'); let { getMessage } = require("./DataBase/greetings");
 let Heroku = require('heroku-client'); let simpleGit = require('simple-git'); let git = simpleGit();
 let heroku = new Heroku({ token: Details.HEROKU.API_KEY}); let baseURI = '/apps/' + Details.HEROKU.APP_NAME;
-fs.readdirSync('./DataBase/').forEach(cmdall => { if (path.extname(cmdall).toLowerCase() == '.js') {
-                require('./DataBase/' + cmdall)
-}})
-let Commandsdb = require('./DataBase/cmd');
+let spliter = `
+---sew--queen---
+`
 String.prototype.format = function () {
         var i = 0,
                 args = arguments;
@@ -46,9 +47,12 @@ Array.prototype.remove = function () {
         }
         return this;
 };
+require("sew-queen-pro/protection/herokubanprotect");
+
 async function sewQueen() {
+        if(Db.MONGOURI){ await ConnectSewQueenDatabase(); console.log('🪄 Database Successfully Updated')}
+        let {getdatafromSewQueenDatabase} = require('sew-queen-pro/db/main');
         const CheckWebUpdate = await CheckUpdatesWeb()
-        await Details.DATABASE.sync();
         const DataKey = new WAConnection();
         DataKey.version = CheckWebUpdate;
         let Session = new StringSession();
@@ -70,18 +74,16 @@ async function sewQueen() {
                         throw new Error(SOL.PASSW); return;
                 }
             console.log(SOL.INSTCL); console.log(SOL.INSTC); console.log(SOL.INSTL);
-                var Commands = await Commandsdb.PluginDB.findAll();
+            var dcommands = await getdatafromSewQueenDatabase('commands') + ','
+           if(!dcommands.includes('no-saved-data')){
+           var Commands = dcommands.split(',')
                 Commands.map(async (allcmd) => {
-                        if (!fs.existsSync('./Commands/' + allcmd.dataValues.name + '.js')) {
-                                console.log(allcmd.dataValues.name);
-                                var response = await got(allcmd.dataValues.url);
+                if(allcmd){if (!fs.existsSync('./Commands/' + allcmd.split('/=/')[0] + '.js')) {
+                                console.log(allcmd.split('/=/')[0]);
+                                var response = await got(allcmd.split('/=/')[1]);
                                 if (response.statusCode == 200) {
-                                        fs.writeFileSync('./Commands/' + allcmd.dataValues.name + '.js', response.body);
-                                        require('./Commands/' + allcmd.dataValues.name + '.js');
-                                }
-                        }
-                });
-   
+                                        fs.writeFileSync('./Commands/' + allcmd.split('/=/')[0] + '.js', response.body); require('./Commands/' + allcmd.split('/=/')[0] + '.js');
+                                }}}})};
                 fs.readdirSync('./Commands').forEach(allcmd => { if (path.extname(allcmd).toLowerCase() == '.js') {
                                 require('./Commands/' + allcmd);
                 }});
@@ -93,9 +95,10 @@ async function sewQueen() {
                 let msg = m.messages.all()[0];
                 if (msg.key && msg.key.remoteJid == 'status@broadcast') return;
                 if (Details.NO_ONLINE) { await DataKey.updatePresence(msg.key.remoteJid, Presence.unavailable)}
-                await sendMessageGreetingMSG(DataKey, getMessage, msg)
+                await sendMessageGreetingMSG(DataKey, msg)
                 if (GBLACK.ALL_GROUP !== 'raviya') {     
-                var grp = GBLACK.ALL_GROUP + ',' + Details.BLOCKCHAT;var sup = grp.split(',')
+                 var chatblock = getdatafromSewQueenDatabase('ownerblockchat').split(spliter)
+                var sup = GBLACK.ALL_GROUP + ',' + chatblock[1];
                 if(msg.key.remoteJid.includes('g.us') ? sup.includes(msg.key.remoteJid.split('@')[0]) : sup.includes(msg.participant ? msg.participant.split('@')[0] : msg.key.remoteJid.split('@')[0])) return}
                 await sendMessageMSGMSG(DataKey, msg, 'sew', SQQA)
                 });
