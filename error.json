@@ -1,0 +1,8 @@
+{
+  "Bot" : "Sew Queen",
+  "Repo" : "https://github.com/ravindu01manoj/Sew-Queen.git",
+  "Error" : {
+        "message" : "You Can Not Use Cloned or Forked Version Of Sew Queen\nPlease Use Original Version",
+        "type" : "Clone-Detected"
+   }
+}
