@@ -1,6 +1,6 @@
 /*Sew Queen Whatsapp Bot    
 
-Telegram: https://t.me/RavinduManoj
+Telegram: https://t.me/praveeya
 Facebook: https://www.facebook.com/ravindu.manoj.79
 Licensed under the  GPL-3.0 License
 Coded By Ravindu Manoj
